@@ -69,6 +69,7 @@ a {
   font-size: 3.1rem;
   font-weight: 500;
   color: #482ff7;
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -121,6 +122,13 @@ main {
   height: 100vh;
 }
 
+.tag {
+  font-weight: 500;
+  text-align: center;
+  padding: 30px;
+  font-size: 20px;
+}
+
 .button1 {
   width: 100px;
   height: 40px;
@@ -167,8 +175,28 @@ body {
   text-align: center;
   color: black;
   background: white;
-  border-top: 1px solid rgb(0, 174, 255);
   font-size: 10pt;
   line-height: 1.6em;
   padding: 10px 10px 30px 10px;
+}
+
+footer {
+  border-top: 1px solid rgb(0, 174, 255);
+  background: white;
+  padding: 1rem 1.5rem;
+}
+
+.html-icon {
+  float: left;
+}
+
+.linux-icon {
+  padding-top: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wordpress-icon {
+  float: right;
 }
