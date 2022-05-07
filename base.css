@@ -71,7 +71,7 @@ a {
   color: #482ff7;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   .nav-menu {
     position: fixed;
     left: -100%;
