@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>base template</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="#" class="nav-logo">Skillz.</a>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">How it works</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" ><input type="button" class="button1" value="Sign-in"></a>
+        </li>
+        <li class="nav-item">
+          <a href="#" ><input type="button" class="button2" value="Sign-up"></a>
+        </li>
+      </ul>
+      <div class="menubar">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    
+  </main>
+
+
+
+
+  <script>
+    const menubar = document.querySelector(".menubar");
+    const navMenu = document.querySelector(".nav-menu");
+
+    menubar.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+      menubar.classList.toggle("active");
+      navMenu.classList.toggle("active");
+
+    const navLink = document.querySelectorAll(".nav-link");
+
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+      menubar.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+    }
+  </script>
+</body>
+<footer>
+  <div class="legal">
+    <i class="bi bi-facebook"></i> <i class="bi bi-telegram"></i> <i class="bi bi-twitter"></i>
+    <p>Copyright © 2022 - <a href="base.html" title="SKILLZ">SKILLZ</a>. All Rights Reserved</p>
+
+  </div>
+</footer>
+
+</html>
