@@ -22,97 +22,82 @@ a {
 .header {
     border-bottom: 1px solid rgb(0, 174, 255);
 }
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
+.topnav {
+    overflow: hidden;
     background-color: white;
+    text-align: right;
+
 }
 
-.menubar {
+.topnav a.logo {
+    float: left;
+}
+
+.topnav a {
+    display: inline-block;
+    color: black;
+    padding: 25px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-align: right;
+}
+
+.topnav a:hover {
+    color: blue;
+}
+
+.topnav a.active {
+    color: blue;
+}
+
+.topnav .icon {
     display: none;
 }
 
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
+@media screen and (max-width: 719px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
 }
 
-.nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@media screen and (max-width: 719px) {
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+
+    .topnav.responsive a.nav-logo {
+        text-align: left;
+    }
 }
 
-.nav-item {
-    margin-left: 5rem;
-}
 
-.nav-link {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: #475569;
-}
-
-.nav-link:hover {
-    color: #482ff7;
-}
 
 .nav-logo {
     font-size: 3.1rem;
     font-weight: 500;
     color: #482ff7;
+    float: left;
 
 }
 
-@media only screen and (max-width: 600px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 5rem;
-        flex-direction: column;
-        background-color: #fff;
-        width: 100%;
-        border-radius: 10px;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow:
-            0 10px 27px rgba(0, 0, 0, 0.05);
-    }
 
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-item {
-        margin: 2.5rem 0;
-    }
-
-    .menubar {
-        display: block;
-        cursor: pointer;
-    }
-
-    .menubar.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menubar.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .menubar.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-}
 
 main {
     width: 100%;
