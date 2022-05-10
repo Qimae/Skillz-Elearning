@@ -19,14 +19,13 @@ a {
     text-decoration: none;
 }
 
-<<<<<<< HEAD
 
 .topnav {
     overflow: hidden;
     background-color: white;
     text-align: right;
+}
 
-=======
 .header {
     border-bottom: 1px solid rgb(0, 174, 255);
 }
@@ -35,7 +34,6 @@ a {
     background-color: white;
     text-align: right;
 
->>>>>>> 6d4dfec7c6bcb36996fa65a2b45b5b0e4d985adb
 }
 
 .topnav a.logo {
@@ -292,8 +290,6 @@ footer {
 
 .contact a {
     color: black;
-
-<<<<<<< HEAD
 }
 
 .container {
@@ -529,8 +525,3 @@ textarea {
     text-align: center;
     background-color: inherit;
 }
-
-
-=======
-}
->>>>>>> 6d4dfec7c6bcb36996fa65a2b45b5b0e4d985adb
