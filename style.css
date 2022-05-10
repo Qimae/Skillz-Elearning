@@ -479,5 +479,43 @@ textarea {
     background-color: blue;
 
 }
+.row-course {
+    margin: 0 -5px;
+    background-color: white;
+    bottom: 10px;
+    position: relative;
+
+}
+
+.row-course:after {
+    content: "";
+    display: table;
+    clear: both;
+
+}
+
+.column-course {
+    float: left;
+    width: 33.3%;
+    height: 300px;
+    padding: 0 10px;
+    padding-top: 20px;
+    background-color: white;
+
+}
+
+@media screen and (max-width: 719px) {
+    .column-course {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+.card-course {
+    padding: 16px;
+    text-align: center;
+    background-color: inherit;
+}
 
 
