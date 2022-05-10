@@ -305,9 +305,8 @@ input[type=password] {
     border-radius: 10px;
 }
 
-button {
-    text-align: center;
-    padding: 10px 20px;
+.button {
+    padding: 10px;
     border-radius: 10px;
     text-align: center;
     background: white;
@@ -316,10 +315,11 @@ button {
     font-size: 15px;
     transition: 0.2s ease;
     cursor: pointer;
-    width: 50%;
+    width: 100%;
+   
 }
 
-button:hover {
+.button:hover {
     color: white;
     background-color: blue;
 
@@ -336,7 +336,7 @@ button:hover {
 }
 
 .ac {
-    float: left;
+    text-align: center;
 }
 
 .row-login {
