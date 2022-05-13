@@ -2,43 +2,26 @@
 {% block content %}
 <a href="#" style="float: right;">See More...</a><br>
 <div class="row">
+    {% for course in courses %}
     <div class="column">
+        
         <div class="card">
-            <h3>Introduction to Programming 1</h3><br>
-            <img src="images/intro.png" alt="Intro image" height="215px" width="100%">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                optio, eaque rerum! Provident similique accusantium nemo autem.</p><br>
+         
+            <h3>{{course.title}}</h3><br>
+            
+        
+            <img src="{{ course.image.url }}" alt="Intro image" height="215px" width="100%">
+            <p> {{course.course_description}}</p><br>
+            <h2> {{course.price}} $</h2><br>
             <a href="#"><input type="button" class="enroll" value="Enroll"></a>
-
+           
 
         </div>
+        
     </div>
+    {% endfor %}
 
-    <div class="column">
-        <div class="card">
-            <h3>C++ Programming</h3><br>
-            <img src="images/C++.jpeg" alt="C++ image" height="215px" width="100%">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                optio, eaque rerum! Provident similique accusantium nemo autem.</p><br>
-            <a href="#"><input type="button" class="enroll" value="Enroll"></a>
-        </div>
-    </div>
 
-    <div class="column">
-        <div class="card">
-            <h3>Web Programming</h3><br>
-            <img src="images/web.jpeg" alt="web image" height="215px" width="100%">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                optio, eaque rerum! Provident similique accusantium nemo autem.</p><br>
-            <a href="#"><input type="button" class="enroll" value="Enroll"></a>
-        </div>
-    </div>
 </div>
 <div class="tag" id="about">
     <h2>How it Works</h2>
