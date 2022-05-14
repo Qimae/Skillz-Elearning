@@ -63,7 +63,7 @@
           <div class="container">
             <form action="{% url 'register' %}" method="POST">
               {% csrf_token %}
-              {% for field in form %}
+               {% for field in form %}
               <div class="mb-3 row">
                 <label for="formInput#text">{{field.label}}</label>
                 {{field}}
@@ -71,15 +71,16 @@
                 
 
               {% endfor%}
+              <!-- <label for={{ form.label.email}}></label>
+              <h4> </h4>
 
+            <input type="text" id="email" name="email" placeholder="Email" required> -->
+            <!-- </label> -->
 
 
               <!-- 
-              <label for="email">
-                <h4>Email: </h4>
-
-                <input type="text" id="email" name="email" placeholder="Email" required>
-              </label>
+              
+               
               <label for="phone">
                 <h4>Phone Number: </h4>
 
