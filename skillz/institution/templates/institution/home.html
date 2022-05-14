@@ -3,19 +3,13 @@
 <a href="#" style="float: right;">See More...</a><br>
 <div class="row">
     {% for course in courses %}
-    <div class="column">
-        
-        <div class="card">
-         
-            <h3>{{course.title}}</h3><br>
-            
-        
+    <div class="column">        
+        <div class="card">         
+            <h3>{{course.title}}</h3><br>        
             <img src="{{ course.image.url }}" alt="Intro image" height="215px" width="100%">
             <p> {{course.course_description}}</p><br>
             <h2> {{course.price}} $</h2><br>
             <a href="#"><input type="button" class="enroll" value="Enroll"></a>
-           
-
         </div>
         
     </div>
