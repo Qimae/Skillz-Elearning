@@ -227,6 +227,24 @@ footer {
     color: white;
     background-color: blue;
 }
+.enroll-desc {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background: white;
+    border: 2px solid blue;
+    color: blue;
+    font-size: 15px;
+    transition: 0.2s ease;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.enroll-desc:hover {
+    color: white;
+    background-color: blue;
+}
 
 .about {
     font-size: 17px;
@@ -284,8 +302,16 @@ footer {
     text-align: left;
     border-radius: 10px;
     position: relative;
-
-
+}
+.container1 {
+    padding: 70px;
+    border-radius: 10px;
+    position: relative;
+    background-color: #dfdfdf;
+    width: 50%;
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(7, 80, 236, 0.493);
+    
 }
 
 input[type=text],
@@ -564,7 +590,6 @@ textarea {
 div.content {
     margin-left: 150px;
     padding: 1px 16px;
-    height: 1000px;
     background-color: white;
 }
 

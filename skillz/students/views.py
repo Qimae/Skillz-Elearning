@@ -30,7 +30,7 @@ def login_student(request):
             messages.success(request, ('There was an error while trying to login. Check your user name and password or create an account.'))
             return redirect('login')
     else:
-        return render(request, 'account/login.html', {})
+        return render(request, 'student/login.html', {})
 
 def logout_student(request):
     logout(request)
@@ -48,7 +48,7 @@ def register_student(request):
             user.username = user.username.lower()
             user.save()
 
-            messages.success(request, "user account was created!")
+            messages.success(request, "user student was created!")
 
             login(request, user)
             return redirect('index')
@@ -57,4 +57,4 @@ def register_student(request):
             messages.error(request, 'An error has occured')
 
     context = { 'page' : page, 'form': form}
-    return render(request, 'account/signup.html', context)
+    return render(request, 'student/signup.html', context)
