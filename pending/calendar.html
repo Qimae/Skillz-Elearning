@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+    <title>Dashboard | Skillz E-learning</title>
+
+</head>
+
+
+<body>
+    <header class="header">
+        <div class="sidebar" id="mySidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a><br>
+            <a href="my-courses.html"><i class="bi bi-play-circle"></i> My Courses</a>
+            <a href="#about"><i class="bi bi-chat-left-dots"></i> Messages</a>
+            <a class="active" href="calendar.html"><i class="bi bi-calendar-plus"></i> Calender</a>
+            <a href="quiz.html"><i class="bi bi-check"></i> Quiz</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> My Account</a>
+            <a href="#logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+
+        </div>
+    </header>
+    <main>
+        <div class="content" id="main">
+            <div class="topnav" id="myTopnav">
+                <button class="openbtn" onclick="openNav()">☰ Hi, {username}</button>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><img src="https://img.icons8.com/ultraviolet/40/000000/test-account.png" />
+                        <i class="bi bi-caret-down-fill"></i>
+
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="#">My Courses</a>
+                        <a href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Content Start -->
+            <iframe id="calendar"
+                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Africa%2FNairobi&showTitle=0&src=a2FydGVsYndveUBnbWFpbC5jb20&src=NTBwbXFycHNrdjE2OWlha28ybXBrNW8wcThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=OG10OWk2Ym1hNXZhYjVpNzVwZHQ3YTcxbWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4ua2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%237986CB&color=%239E69AF&color=%234285F4&color=%230B8043"
+                style="border:solid 1px #777" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.width = "150px";
+                document.getElementById("main").style.marginLeft = "150px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        </script>
+
+
+    </main>
+
+</body>
+
+</html>
