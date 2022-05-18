@@ -1,0 +1,17 @@
+{% extends "student/base_stu.html" %}
+{% block content %}
+
+<div class="container1">
+  
+  <img style="float: left;" src="{{ course.image.url }}" alt="image" height="180px" width="300px">
+  <h2 style="margin-top: 40px; text-align: center;">{{course.title}}</h2>
+  <p style="text-align: center; margin-top: 120px;">{{desc}}<br>
+    {%for sec in section %}
+    {{sec.title}}
+    {% endfor %}
+
+  <a href=""><input type="button" class="enroll-desc" value="Enroll" ></a></p>
+
+</div><br>
+
+{% endblock %}

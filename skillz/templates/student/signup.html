@@ -64,8 +64,7 @@
             <form action="{% url 'register' %}" method="POST">
               {% csrf_token %}
                {% for field in form %}
-              <div class="mb-3 row">
-                <label for="formInput#text">{{field.label}}</label>
+                  {{field.label}}
                 {{field}}
               </div>
                 
@@ -96,7 +95,7 @@
 
                 <input type="password" id="pass" name="password" placeholder="Confirm Password" required><br><br> -->
               </label>
-              <input type="submit" class="button" name="submit" value="Join"><br><br>
+              <input type="submit" class="button" name="submit" value="Register user"><br><br>
               <div class="ac">
                 <p><input type="checkbox" id="check" name="privacy"> I agree to the Skillz <a href="terms.pdf">Terms and
                     Conditions</a></p><br>

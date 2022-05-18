@@ -20,23 +20,23 @@
       <a href="{% url 'index' %}">Home</a>
       <a href="#about">How it works</a>
       <a href="#contact">Contact Us</a>
-      <a href="{% url 'index' %}">Teach on Skillz</a>
-      <a href="{% url 'index' %}">Skillz For Business</a>
+      <a href="{% url 'signup_teacher' %}">Teach on Skillz</a>
+
       {% if request.user.is_authenticated %}
       <div class="dropdown">
         <button class="dropbtn"><img src="https://img.icons8.com/ultraviolet/40/000000/test-account.png" /><i
             class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="#">Profile</a>
+          <a href="{% url 'profile' %}">Profile</a>
           <a href="#">My Courses</a>
-          <a href="#">Log out</a>
+          <a href="{% url 'logout' %}">Log out</a>
         </div>
       </div>
       {% else %}
 
-      <a href="{% url 'login' %}"><input type="button" class="button1" value="Sign-in"></a>
-      <a href="{% url 'register' %}"><input type="button" class="button2" value="Sign-up"></a>
+      <a href="{% url 'login_teacher' %}"><input type="button" class="button1" value="Sign-in"></a>
+      <a href="{% url 'signup_teacher' %}"><input type="button" class="button2" value="Sign-up"></a>
       {% endif %}
 
 
@@ -46,13 +46,7 @@
     </div>
   </header>
   <main>
-    <div class="tag">
-      <h1>Free online courses with free Certificate</h1>
-    </div>
-    <img class="html-icon" src="https://img.icons8.com/color/48/000000/html-5--v1.png" />
-    <img class="wordpress-icon" src="https://img.icons8.com/fluency/48/000000/wordpress.png" />
-    <img class="linux-icon" src="https://img.icons8.com/color/48/000000/linux--v1.png" />
-
+    
 
     <!-- add content here -->
     {% block content %}
@@ -60,6 +54,7 @@
 
 
     {% endblock %}
+
 
   </main>
 

@@ -1,14 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from .models import Profile
 
 from django.contrib import messages
-from .aforms import CustomUserCreationForm
+from .forms import CustomUserCreationForm
 # Create your views here.
 
+def index(request):
+    # courses = course.objects.all()
+    # context = { 'courses' : courses}
+    return render(request , 'student/home_stu.html')
 
 def login_student(request):
-    page = 'register'
+    
     if request.user.is_authenticated:
         return redirect('index')
     if request.method == "POST":
@@ -58,3 +63,14 @@ def register_student(request):
 
     context = { 'page' : page, 'form': form}
     return render(request, 'student/signup.html', context)
+
+def profile(request):
+    current_user = request.user.get_username()
+    # pk = current_user.id
+    # profile = Profile.objects.get(id=pk)
+    user = {
+        'user':current_user,
+        # 'profile': profile
+        }
+    return render(request, 'student/profile.html',{'user': user})
+    # return render(request, 'student/profile.html', context)

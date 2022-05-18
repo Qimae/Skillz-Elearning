@@ -7,11 +7,8 @@ from django.contrib.auth.forms import UserCreationForm
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['first_name', 'email', 'last_name', 'password1', 'password2',]
-        labels = {
-            'first_name' : 'Name',
-        }
-    
+        fields = ['username', 'email', 'last_name', 'password1', 'password2',]
+        
     def __init__(self, *args, **kwargs):
         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
 
