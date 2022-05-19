@@ -28,15 +28,19 @@ def CourseUpload(request):
     context = { 
         "form":form
     }
-    return render(request, "teacher/new-upload.html", context)
+    return render(request, "teacher/course_form.html", context)
 
 def CourseDescription(request, pk):
     courses = course.objects.get(id=pk)
-    sections = course.section.through.objects.filter(course_id=pk)
+    sections = courses.section.all()
+    # lesson = sections.lessons.all()
+    test = course.objects.filter(Section_id=pk)
     description = courses.course_description[:50]
     context = { 
         'course' : courses,
         'desc' : description,
         'section' : sections,
+        # 'lesson' : lesson,
+        'test' : test,
         }
     return render(request, "student/course-description.html",context)    

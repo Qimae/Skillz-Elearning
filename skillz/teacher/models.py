@@ -13,9 +13,12 @@ class course(models.Model):
     course_description = models.TextField(null=True)
     price = models.IntegerField(default=0.00)
     image = models.ImageField(null=True, blank=True, upload_to="images")
-    video = models.FileField(null=True, blank=True, upload_to="images/%y")
+    # video = models.FileField(null=True, blank=True, upload_to="images/%y")
     section = models.ManyToManyField('Section', blank=True)
     instructor = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    # class Meta:
+    #     ordering = ['section']
 
     def __str__(self):
         return self.title 
@@ -26,7 +29,7 @@ class Section(models.Model):
     lessons = models.ManyToManyField('Lesson', blank=True)
 
     def __str__(self):
-        return self.title
+        return f" {self.number} {self.title}"
         
 class Lesson(models.Model):
     title = models.CharField(max_length=200)
