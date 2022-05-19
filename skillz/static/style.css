@@ -25,6 +25,7 @@ a {
     background-color: white;
     text-align: right;
 
+
 }
 
 .topnav a.logo {
@@ -97,6 +98,7 @@ main {
     background: white;
     background-position: center;
     background-size: cover;
+    height: 100vh;
 }
 
 .tag {
@@ -145,6 +147,7 @@ main {
 body {
     background: #f2f2f2;
     font: 10pt Verdana;
+    margin: 5px;
 }
 
 .legal {
@@ -209,7 +212,72 @@ footer {
     text-align: center;
     background-color: #f1f1f1;
 }
+.column-my {
+    float: left;
+    width: 33.3%;
+    padding: 0 10px;
+    padding-top: 20px;
+}
 
+.row-my {
+    margin: 0 -5px;
+}
+
+.row-my:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 719px) {
+    .column-my {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+}
+
+.card-my {
+    box-shadow: 0 4px 8px 0 rgba(7, 80, 236, 0.493);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+.column-desc {
+    width: 50%;
+    padding: 0 10px;
+    padding-top: 20px;
+    display: block;
+    margin: 0 auto;   
+}
+.row-desc {
+    margin: 0 auto;
+
+}
+
+.row-desc:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 719px) {
+    .column-desc {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+.card-desc {
+    box-shadow: 0 4px 8px 0 rgba(7, 80, 236, 0.493);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    
+    
+}
 .enroll {
     width: 100px;
     height: 40px;
@@ -227,8 +295,25 @@ footer {
     color: white;
     background-color: blue;
 }
+.enroll-my {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background: white;
+    border: 2px solid blue;
+    color: blue;
+    font-size: 15px;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.enroll-my:hover {
+    color: white;
+    background-color: blue;
+}
 .enroll-desc {
-    width: 100px;
+    width: 200px;
     height: 40px;
     border-radius: 10px;
     text-align: center;
@@ -307,11 +392,17 @@ footer {
     padding: 70px;
     border-radius: 10px;
     position: relative;
-    background-color: #dfdfdf;
+    background-color: white;
     width: 50%;
     margin: auto;
-    box-shadow: 0 4px 8px 0 rgba(7, 80, 236, 0.493);
     
+}
+@media screen and (max-width: 719px) {
+    .container1 {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
 }
 
 input[type=text],
@@ -395,9 +486,8 @@ textarea {
         display: none;
     }
 
-    .dropdown-content {
-        width: 100px;
-        height: fit-content;
+    .dropdown {
+        display: none;
     }
 }
 
@@ -480,6 +570,9 @@ textarea {
         display: block;
         margin-bottom: 20px;
     }
+    #prof {
+        border-top: 1px solid grey;
+    }
 }
 
 .card-profile {
@@ -541,6 +634,28 @@ textarea {
         display: block;
         margin-bottom: 20px;
     }
+    div.content {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    video {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    main {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    #calendar {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+
+    }
+
 }
 
 .card-course {
@@ -552,12 +667,16 @@ textarea {
 .sidebar {
     margin: 0;
     padding: 0;
-    width: 150px;
+    width: 0;
     background-color: #33258f;
     position: fixed;
     height: 100%;
-    overflow: auto;
-
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    z-index: 1;
+    padding-top: 60px;
 }
 
 .sidebar a {
@@ -567,10 +686,34 @@ textarea {
     text-decoration: none;
     border-radius: 5px;
     margin-left: 15px;
-
-
+    transition: 0.3s;
 }
 
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    color:#33258f;
+    padding: 1px;
+    border: none;
+    float: left;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
 .sidebar a.active {
     background-color: white;
     color: #33258f;
@@ -588,7 +731,6 @@ textarea {
 }
 
 div.content {
-    margin-left: 150px;
     padding: 1px 16px;
     background-color: white;
 }
@@ -599,4 +741,11 @@ div.content {
 h4 {
     color: #33258f;
 
+}
+.title {
+    color: #33258f;
+
+}
+.title:hover {
+    color: red;
 }

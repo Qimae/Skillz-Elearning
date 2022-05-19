@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import course
 from .models import Section
+from django.contrib.auth.models import User
 from .forms import CourseForm
 
 
@@ -34,13 +35,31 @@ def CourseDescription(request, pk):
     courses = course.objects.get(id=pk)
     sections = courses.section.all()
     # lesson = sections.lessons.all()
-    test = course.objects.filter(Section_id=pk)
+    # test = course.objects.filter(Section_id=pk)
     description = courses.course_description[:50]
+    instructor = courses.instructor.get_short_name()
     context = { 
         'course' : courses,
         'desc' : description,
         'section' : sections,
         # 'lesson' : lesson,
-        'test' : test,
+        'instructor': instructor,
         }
     return render(request, "student/course-description.html",context)    
+
+def LessonDescription(request, pk):
+    courses = course.objects.get(id=pk)
+    sections = courses.section.all()
+    section_sub = courses.section.all()
+    # lesson = Section.lessons.title
+    # test = course.objects.filter(Section_id=pk)
+    description = courses.course_description[:50]
+    instructor = courses.instructor.get_short_name()
+    context = { 
+        'course' : courses,
+        'desc' : description,
+        'section' : sections,
+        'lesson' : section_sub,
+        'instructor': instructor,
+        }
+    return render(request, "student/lesson.html",context)    

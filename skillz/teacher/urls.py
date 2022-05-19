@@ -10,6 +10,7 @@ urlpatterns = [
     path('course-description/<str:pk>', views.CourseDescription, name='course-description'),
     path('login_teacher', views.LoginTeacher, name='login_teacher'),
     path('signup_teacher', views.SignupTeacher, name='signup_teacher'),
+    path('lesson-description/<str:pk>', views.LessonDescription, name='lesson-description'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

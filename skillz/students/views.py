@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .models import Profile
+from teacher.models import course
 
 from django.contrib import messages
 from .forms import CustomUserCreationForm
@@ -74,3 +75,22 @@ def profile(request):
         }
     return render(request, 'student/profile.html',{'user': user})
     # return render(request, 'student/profile.html', context)
+
+def mycourses(request, pk):
+    current_user = request.user.get_username()
+    courses = course.objects.get(id=pk)
+    sections = courses.section.all()
+    # lesson = sections.lessons.all()
+    test = course.objects.filter(Section_id=pk)
+    description = courses.course_description[:50]
+    # instructor = courses.instructor.all()
+    context = { 
+        'user': current_user,
+        'course' : courses,
+        'desc' : description,
+        'section' : sections,
+        # 'lesson' : lesson,
+        'test' : test,
+        }
+
+    return render(request, 'dashboard/my-courses.html', context)
