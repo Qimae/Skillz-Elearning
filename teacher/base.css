@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  font: 10pt Verdana;
+
+}
+
+.header {
+  border-bottom: 1px solid rgb(0, 174, 255);
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+
+}
+
+.topnav a.logo {
+  float: left;
+  
+}
+
+.topnav a {
+  display: inline-block;
+  color: black;
+  padding: 25px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: right;
+}
+
+.topnav a:hover {
+  color: blue;
+}
+
+.topnav a.active {
+  color: blue;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 719px) {
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+
+  .topnav.responsive a.nav-logo {
+    text-align: left;
+  }
+}
+
+.nav-logo {
+  color: #482ff7;
+  float: left;
+  margin-left: 200px;
+
+}
+
+.button1 {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+  border: 2px solid blue;
+  color: blue;
+  font-size: 15px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.button1:hover {
+  color: white;
+  background-color: blue;
+}
+
+.button2 {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  background: blue;
+  border: 2px solid blue;
+  color: white;
+  font-size: 15px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.button2:hover {
+  color: rgb(27, 23, 245);
+  background-color: white;
+}
+
+.tag {
+  font-weight: 500;
+  text-align: center;
+  padding: 30px;
+  font-size: 20px;
+}
+
+.html-icon {
+  float: left;
+}
+
+.linux-icon {
+  padding-top: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wordpress-icon {
+  float: right;
+}
+
+.legal {
+  width: 100%;
+  text-align: center;
+  color: black;
+  background: white;
+  font-size: 10pt;
+  line-height: 1.6em;
+  padding: 10px 10px 30px 10px;
+}
+
+footer {
+  border-top: 1px solid rgb(0, 174, 255);
+  background: white;
+  padding: 1rem 1.5rem;
+}
+
+main {
+  width: 100%;
+  background: white;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+/**************nav*************/
+
+section {
+  margin-left: 200px;
+  width: 70%;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  transition: all .2s ease;
+}
+.navbar {
+  background-color:blue;
+  width:1500px;
+  position: absolute;
+  left: 0;
+  width:100px;
+  height:100px;
+  top: 0;
+  height: 115%;
+  text-align: center;
+  box-shadow: black;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.navbar, .navbar ul {
+  padding: 0;
+  margin: 0;
+}
+#navbar_icon {
+  position: relative;
+  top: 3vh;
+  
+}
+#navbar_icon:hover {
+  color: black;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  transition: all .2s ease;
+}
+.navbar ul a:hover {
+  font-size: 25px;
+  color: black;
+}
+.navbar ul {
+  list-style: none;
+  margin-top: 10vh;
+}
+.navbar ul li {
+  margin-bottom: 10vh;
+}
+/*loader_wrapperr*/
