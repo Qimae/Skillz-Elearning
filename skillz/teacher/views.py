@@ -4,7 +4,8 @@ from .models import course
 from .models import Section
 from django.contrib.auth.models import User
 from .forms import CourseForm
-
+from .forms import SectionForm
+from .forms import LessonForm
 
 
 def index(request):
@@ -20,14 +21,29 @@ def SignupTeacher(request):
     return render(request, "teacher/signup_teacher.html")
 
 def CourseUpload(request):
-    form = CourseForm(request.POST, request.FILES)
+    course_form = CourseForm(request.POST, request.FILES)
+    section_form = SectionForm(request.POST, request.FILES)
+    lesson_form = LessonForm(request.POST, request.FILES)
     if request.method == 'POST':
-        form = CourseForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
+        course_form = CourseForm(request.POST, request.FILES)
+        if course_form.is_valid():
+            course_form.save()
+            redirect('index')
+    if request.method == 'POST':
+        section_form = SectionForm(request.POST, request.FILES)
+        if section_form.is_valid():
+            section_form.save()
+            redirect('index')
+    if request.method == 'POST':
+        lesson_form = LessonForm(request.POST, request.FILES)
+        if lesson_form.is_valid():
+            lesson_form.save()
             redirect('index')
     context = { 
-        "form":form
+        "lesson_form" : lesson_form,
+        "course_form" : course_form,
+        "section_form" : section_form,
+
     }
     return render(request, "teacher/course_form.html", context)
 
