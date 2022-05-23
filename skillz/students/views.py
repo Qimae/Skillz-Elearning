@@ -1,14 +1,21 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile
 from teacher.models import course
 
 from django.contrib import messages
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ProfileForm
 # Create your views here.
 
+
 def index(request):
+    # courses = course.objects.all()
+    # context = { 'courses' : courses}
+    return render(request , 'landingpage.html')
+
+def home_page(request):
     # courses = course.objects.all()
     # context = { 'courses' : courses}
     return render(request , 'student/home_stu.html')
@@ -24,8 +31,8 @@ def login_student(request):
         try:
             user = User.objects.get(username=username)
         except:
-            print('Username does not exit')
-
+            messages.error(request, 'username does not exit')
+            
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
@@ -65,15 +72,18 @@ def register_student(request):
     context = { 'page' : page, 'form': form}
     return render(request, 'student/signup.html', context)
 
+# @login_required(login_url='login')
 def profile(request):
+    form = ProfileForm()
     current_user = request.user.get_username()
-    # pk = current_user.id
-    # profile = Profile.objects.get(id=pk)
-    user = {
+    pk = request.user.get_id()
+    profile = Profile.objects.get(id=pk)
+    context = {
         'user':current_user,
-        # 'profile': profile
+        'profile': profile,
+        'form' : form,
         }
-    return render(request, 'student/profile.html',{'user': user})
+    return render(request, 'student/profile.html',context)
     # return render(request, 'student/profile.html', context)
 
 def mycourses(request, pk):

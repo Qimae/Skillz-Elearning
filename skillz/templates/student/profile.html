@@ -5,12 +5,16 @@
 
 
 
-    <img src="{{ request.user.profile.image.url }}" alt="user image" width="215px" height="200px">
     <div class="row-profile">
         <div class="column-profile">
             <div class="card-profile">
                 <div class="container">
+                    <a href="{% url 'profile' %}"><img src="{{ Profile.image.url }}" alt="user image"
+                        height="115px" width="100%"></i></a>
+
                     <form action="" method="POST">
+                        {% csrf_token %}
+                        {{form}}
                         <label for="name">
                             <h4>Full Name:  </h4>
                             <input type="text" id="name" name="full_name" placeholder="Full Name" required>
@@ -39,7 +43,7 @@
                             <input type="text" id="edu" name="edu" placeholder="Education Level" required>
                         </label>
 
-                        <input type="button" class="button-profile" name="submit" value="Save"><br><br>
+                        <input type="submit" class="button-profile" name="submit" value="Save"><br><br>
                     </form>
                 </div>
             </div>

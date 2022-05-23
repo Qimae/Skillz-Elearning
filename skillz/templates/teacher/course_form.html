@@ -1,18 +1,11 @@
-{% extends "teacher/base_teacher.html" %}
+{% extends "dashboard/new-dashboard.html" %}
+{% load static %}
 {% block content %}
 
 <h1> upload course </h1>
 
 <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {% for field in course_form %}
-        {{field.label}}
-        {{field}}
-    {% endfor %}
-    {% for field in section_form %}
-        {{field.label}}
-        {{field}}
-    {% endfor %}
     {% for field in lesson_form %}
         {{field.label}}
         {{field}}

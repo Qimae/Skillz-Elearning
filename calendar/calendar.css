@@ -253,7 +253,7 @@ table {
     display: flex;
     flex-direction: column;
     width: 48vw;
-    height:250px;
+    height:450px;
     align-items: center;
     margin: 14vh auto 0;
     background-color: #fefdfd;
@@ -378,7 +378,7 @@ table {
 }
 
 #make-note #edit-post-it {
-    height: 340px;
+    height: 440px;
     width: 85%;
     font-size: 2.6vw;
     padding: 14px;

@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import course
 from .models import Section
+from .models import Lesson
 from django.contrib.auth.models import User
 from .forms import CourseForm
 from .forms import SectionForm
@@ -20,7 +21,26 @@ def LoginTeacher(request):
 def SignupTeacher(request):
     return render(request, "teacher/signup_teacher.html")
 
+def calendar(request):
+    current_user = request.user.get_username()
+    context = {
+        'user':current_user,
+        # 'profile': profile
+        }
+    return render(request, "dashboard/calendar.html", context)
+
+def Tprofile(request):
+    current_user = request.user.get_username()
+    # pk = current_user.id
+    # profile = Profile.objects.get(id=pk)
+    context = {
+        'user': current_user,
+        # 'profile': profile
+        }
+    return render(request, 'teacher/profilefinal.html', context)
+
 def CourseUpload(request):
+    current_user = request.user.get_username()
     course_form = CourseForm(request.POST, request.FILES)
     section_form = SectionForm(request.POST, request.FILES)
     lesson_form = LessonForm(request.POST, request.FILES)
@@ -43,13 +63,14 @@ def CourseUpload(request):
         "lesson_form" : lesson_form,
         "course_form" : course_form,
         "section_form" : section_form,
+        'user': current_user,
 
     }
     return render(request, "teacher/course_form.html", context)
 
 def CourseDescription(request, pk):
     courses = course.objects.get(id=pk)
-    sections = courses.section.all()
+    sections = Section.objects.filter(courses_id=pk)
     # lesson = sections.lessons.all()
     # test = course.objects.filter(Section_id=pk)
     description = courses.course_description[:50]
@@ -64,18 +85,20 @@ def CourseDescription(request, pk):
     return render(request, "student/course-description.html",context)    
 
 def LessonDescription(request, pk):
-    courses = course.objects.get(id=pk)
-    sections = courses.section.all()
-    section_sub = courses.section.all()
-    # lesson = Section.lessons.title
+    sections = Section.objects.get(id=pk)
+    # sections = courses.section.all()
+    # section_sub = courses.section.all()
+    lessons = Lesson.objects.filter(section_id=pk)
     # test = course.objects.filter(Section_id=pk)
-    description = courses.course_description[:50]
-    instructor = courses.instructor.get_short_name()
+    # description = courses.course_description[:50]
+    # instructor = courses.instructor.get_short_name()
+    
+
     context = { 
-        'course' : courses,
-        'desc' : description,
+        # 'course' : courses,
+        # 'desc' : description,
         'section' : sections,
-        'lesson' : section_sub,
-        'instructor': instructor,
+        'lesson' : lessons,
+        # 'instructor': instructor,
         }
-    return render(request, "student/lesson.html",context)    
+    return render(request, "student/lesson.html", context)    

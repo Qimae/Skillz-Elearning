@@ -20,10 +20,10 @@
         <div class="sidebar" id="mySidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a><br>
 
-            <a href="{% url 'mycourses' %}"><i class="bi bi-play-circle"></i> My Courses</a>
+            <a href="{% url 'CourseUpload' %}"><i class="bi bi-play-circle"></i> My Courses</a>
 
             <a href="#about"><i class="bi bi-chat-left-dots"></i> Messages</a>
-            <a href="#about"><i class="bi bi-calendar-plus"></i> Calendar</a>
+            <a href="{% url 'calendar' %}"><i class="bi bi-calendar-plus"></i> Calendar</a>
             <a href="#about"><i class="bi bi-check"></i> Quiz</a>
 
             <a href="{% url 'profile' %}"><i class="bi bi-person-circle"></i> My Account</a>
@@ -34,11 +34,11 @@
     <main>
         <div class="content" id="main">
             <div class="topnav" id="myTopnav">
-                <button class="openbtn" onclick="openNav()">☰ Hi, {{user.user}}</button>
+                <button class="openbtn" onclick="openNav()">☰ Hi, {{user}}</button>
 
                 <div class="dropdown">
                     <button class="dropbtn">
-                        <a href="{% url 'profile' %}"><img src="{{ request.user.profile.image.url }}" alt="user image"
+                        <a href="{% url 'profile' %}"><img src="{{ profile.image.url }}" alt="user image"
                                 height="115px" width="100%"></i></a>
 
                     </button>

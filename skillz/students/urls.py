@@ -4,7 +4,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    # path('', views.index, name='index'),
+    path('students_home/', views.home_page, name='home_page'),
     path('login_student/', views.login_student, name='login'),
     path('logout_student/', views.logout_student, name='logout'),
     path('register_student/', views.register_student, name='register'),

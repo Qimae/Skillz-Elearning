@@ -1,6 +1,7 @@
 from distutils.command.upload import upload
 from django.contrib.auth.models import User
 from django.db import models
+# from embed_video.fields import EmbedVideoField
 
 class course(models.Model):
     #main_course
@@ -13,7 +14,7 @@ class course(models.Model):
     course_description = models.TextField(null=True)
     price = models.IntegerField(default=0.00)
     image = models.ImageField(null=True, blank=True, upload_to="images")
-    # video = models.FileField(null=True, blank=True, upload_to="images/%y")
+    video = models.FileField(null=True, blank=True, upload_to="images/%y")
     # section = models.ForeignKey('Section', on_delete=models.CASCADE)
     instructor = models.ForeignKey(User, on_delete=models.CASCADE)
     

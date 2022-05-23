@@ -1,0 +1,48 @@
+{% extends "dashboard/new-dashboard.html" %}
+{% load static %}
+{% block content %}
+<div class="row-profile">
+    <div class="column-profile">
+        <div class="card-profile">
+            <div class="container">
+                <h2 style="color: #33258f;">lesson</h2><br>
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {% csrf_token %}
+                    {% for field in lesson_form %}
+                        {{field.label}}
+                        {{field}}
+                    {% endfor %}
+                    
+                    <a href="" style="float: right; font-size: 20px; margin-top: 20px;">
+                        <input type="submit" class="button-profile" name="submit" value="next"><br><br>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+                    <!-- second row -->
+                    <div class="row-profile">
+                        <div class="column-profile">
+                            <div class="card-profile">
+                                <div class="container">
+                                    <h2 style="color: #33258f;"> Instructor: {{user}}</h2><br>
+                                    <div class="profile_pic"><img src="{{ request.user.profile.image.url }}" alt="user image"
+                                        height="300px" width="100%" ></i></a></div>
+                                    
+        
+                                        {{ section.title}}
+                                        
+                                    <!-- </form> -->
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+</div>
+
+
+{% endblock %}

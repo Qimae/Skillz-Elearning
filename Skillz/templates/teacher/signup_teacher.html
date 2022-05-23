@@ -1,0 +1,61 @@
+{% extends "teacher/base_teacher.html" %}
+{% block content %}
+{% load static %}
+    <div class="row-login">
+      <div class="column-login">
+        <div class="card-login">
+          <h3 style="text-align: left; font-size: 50px; color: blue; margin-left: 70px;">Apply as a</h3>
+          <h3 style="text-align: left; font-size: 50px; color: blue; margin-left: 70px;">Skillz Tutor</h3>
+          <div class="container">
+            <form action="" method="POST">
+              <label for="name">
+                <h4>Full Name: </h4>
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+              </label>
+              <label for="email">
+                <h4>Email: </h4>
+
+                <input type="text" id="email" name="email" placeholder="Email" required>
+              </label>
+              <label for="phone">
+                <h4>Phone Number: </h4>
+
+                <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+              </label>
+              <label for="Field">
+                <h4>School Field: </h4>
+
+                <input type="text" id="field" name="field" placeholder="School Field" required>
+              </label>
+              <label for="pass">
+                <h4>Create Password: </h4>
+
+                <input type="password" id="pass" name="password" placeholder="Create Password" required>
+              </label>
+              <label for="pass">
+                <h4>Confirm Password: </h4>
+
+                <input type="password" id="pass" name="password" placeholder="Confirm Password" required><br><br>
+              </label>
+              <input type="button" class="button" name="submit" value="Join"><br><br>
+              <div class="ac">
+                <p><input type="checkbox" id="check" name="privacy"> I agree to the Skillz <a href="terms.pdf">Terms and
+                    Conditions</a></p><br>
+                <p>Already have an account? <a href="login-teach.html">login here.</a></p>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="column-login">
+        <div class="card-login" id="teens">
+          <img src='{% static "image/bg.jpeg" %}' alt="Teens image" height="400px">
+
+        </div>
+
+      </div>
+    </div><br>
+    {% endblock %}
