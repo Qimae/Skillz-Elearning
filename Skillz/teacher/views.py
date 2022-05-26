@@ -4,12 +4,12 @@ from .models import course
 from .models import Section
 from .models import Lesson
 from django.contrib.auth.models import User
-from .forms import CourseForm
+from .forms import CourseForm, EnrollForm
 from .forms import SectionForm
 from .forms import LessonForm
 
 
-def index(request):
+def Tindex(request):
     courses = course.objects.all()
     context = { 'courses' : courses}
     return render(request , 'teacher/home_teacher.html', context)
@@ -40,20 +40,23 @@ def Tprofile(request):
     return render(request, 'teacher/profilefinal.html', context)
 
 def CourseUpload(request):
-    current_user = request.user.get_username()
+    current_user = request.user
     course_form = CourseForm(request.POST, request.FILES)
-    section_form = SectionForm(request.POST, request.FILES)
-    lesson_form = LessonForm(request.POST, request.FILES)
+    # section_form = SectionForm(request.POST, request.FILES)
+    # lesson_form = LessonForm(request.POST, request.FILES)
     if request.method == 'POST':
         course_form = CourseForm(request.POST, request.FILES)
         if course_form.is_valid():
-            course_form.save()
-            redirect('index')
+            course = course_form.save(commit=False)
+            course.students = current_user
+            course.save()
+            
+            return redirect('SectionUpload')
 
     context = { 
-        "lesson_form" : lesson_form,
+        # "lesson_form" : lesson_form,
         "course_form" : course_form,
-        "section_form" : section_form,
+        # "section_form" : section_form,
         'user': current_user,
 
     }
@@ -72,7 +75,7 @@ def SectionUpload(request):
             section = section_form.save(commit=False)
             section.courses = courses
             section.save()
-            redirect('index')
+            return redirect('LessonUpload')
    
     
     context = { 
@@ -95,7 +98,8 @@ def LessonUpload(request):
         if lesson_form.is_valid():
             lesson = lesson_form.save(commit=False)
             lesson.section = section
-            redirect('index')
+            lesson.save()
+            return redirect('LessonUpload')
 
 
     context = { 
@@ -108,6 +112,8 @@ def LessonUpload(request):
 
 
 
+
+
 def CourseDescription(request, pk):
     courses = course.objects.get(id=pk)
     sections = Section.objects.filter(courses_id=pk)
@@ -115,6 +121,9 @@ def CourseDescription(request, pk):
     # test = course.objects.filter(Section_id=pk)
     description = courses.course_description[:50]
     # instructor = courses.instructor.get_short_name()
+
+
+
     context = { 
         'course' : courses,
         'desc' : description,
@@ -142,3 +151,25 @@ def LessonDescription(request, pk):
         # 'instructor': instructor,
         }
     return render(request, "student/lesson.html", context)    
+
+def enroll(request, pk):
+    current_user = request.user.get_username()
+    section = Section.objects.last()
+    enroll_form = EnrollForm(request.POST, request.FILES)
+    
+    if request.method == 'POST':
+        enroll_form = EnrollForm(request.POST, request.FILES)
+        if enroll_form.is_valid():
+            lesson = enroll_form.save(commit=False)
+            lesson.section = section
+            lesson.save()
+            return redirect('LessonUpload')
+
+
+    context = { 
+        "enroll_form" : enroll_form,
+        'section' : section,
+        'user': current_user,
+
+    }
+    return render(request, "courses/enroll.html", context)

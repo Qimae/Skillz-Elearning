@@ -7,10 +7,10 @@
             <div class="container">
                 <h2 style="color: #33258f;">Section</h2><br>
 
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{% url 'SectionUpload' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
 
-                    {% csrf_token %}
+
                     {% for field in section_form %}
                         {{field.label}}
                         {{field}}
@@ -24,24 +24,7 @@
         </div>
     </div>
 
-                    <!-- second row -->
-                    <div class="row-profile">
-                        <div class="column-profile">
-                            <div class="card-profile">
-                                <div class="container">
-                                    <h2 style="color: #33258f;"> Instructor: {{ course.title}}</h2><br>
-                                    <div class="profile_pic"><img src="{{ course.image }}" alt="user image"
-                                        height="300px" width="100%" ></i></a></div>
-                                    
-        
-                                        {{ course.tilte}}
-                                        
-                                    <!-- </form> -->
-                                </div>
-                            </div>
-                        </div>
-    
-                    </div>
+                   
 </div>
 
 

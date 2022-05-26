@@ -20,7 +20,8 @@ class course(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to="images")
     video = models.FileField(null=True, blank=True, upload_to="images/%y")
     # section = models.ForeignKey('Section', on_delete=models.CASCADE)
-    students = models.ManyToManyField(User)
+    students = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    
     
     # class Meta:
     #     ordering = ['section']
@@ -55,8 +56,9 @@ class Instructor(models.Model):
 
 
 class Course_Learner(models.Model):
+    Note = models.CharField(max_length=200)
     learner = models.ForeignKey(User, on_delete=models.CASCADE)
-    courses = models.ManyToManyField(course)
+    CourseLearner = models.ForeignKey(course, on_delete=models.CASCADE, null=True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)

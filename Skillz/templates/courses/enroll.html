@@ -1,0 +1,12 @@
+{% extends "student/base_stu.html" %}
+{% block content %}
+
+
+<form action="" method="POST" >
+    {% csrf_token %}
+{% for filed in enroll_form %}
+{{filed}}
+
+{% endfor %}
+<input type="submit" class="button-profile" name="submit" value="enroll">
+{% endblock %}
