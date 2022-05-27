@@ -12,7 +12,9 @@
     <div class="column">
         <div class="card">
             <h3>{{course.title}}</h3><br>
+            {% if course.image %}
             <img src="{{ course.image.url }}" alt="Intro image" height="215px" width="100%">
+            {% endif %} 
             <p> {{course.course_description}}</p><br>
             <h2> {{course.price}} $</h2><br>
             {% if request.user.is_authenticated %}

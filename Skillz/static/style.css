@@ -175,12 +175,14 @@ footer {
 .column {
     float: left;
     width: 33.3%;
+    
     padding: 0 10px;
     padding-top: 20px;
 }
 
 .row {
     margin: 0 -5px;
+    height: 50%;
 }
 
 .row:after {
@@ -688,6 +690,12 @@ textarea {
     padding: 16px;
 }
 
+#main-start {
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-right: 400px;
+}
+
 @media screen and (max-height: 450px) {
     .sidebar {
         padding-top: 15px;
@@ -725,9 +733,13 @@ h4 {
 }
 
 .title {
-    color: #33258f;
+    color: black;
 }
 
 .title:hover {
+    color: red;
+}
+
+span {
     color: red;
 }

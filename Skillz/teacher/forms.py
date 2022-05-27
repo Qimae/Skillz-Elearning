@@ -8,7 +8,7 @@ from .models import Course_Learner
 class CourseForm(ModelForm):
     class Meta:
         model = course
-        fields = '__all__'
+        fields = ['title', 'course_description', 'price', 'image', 'video']
     
     def __init__(self, *args, **kwargs):
         super(CourseForm, self).__init__(*args, **kwargs)

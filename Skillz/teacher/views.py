@@ -1,5 +1,7 @@
+from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import course
 from .models import Section
 from .models import Lesson
@@ -10,12 +12,17 @@ from .forms import LessonForm
 
 
 def Tindex(request):
-    courses = course.objects.all()
+    courses = course.objects.all()[:3]
     context = { 'courses' : courses}
     return render(request , 'teacher/home_teacher.html', context)
 
 def LoginTeacher(request):
     return render(request, "teacher/login_teacher.html")
+
+def courses(request):
+    courses = course.objects.all()
+    context = { 'courses' : courses}
+    return render(request , 'teacher/courses.html', context)
 
 
 def SignupTeacher(request):
@@ -39,6 +46,8 @@ def Tprofile(request):
         }
     return render(request, 'teacher/profilefinal.html', context)
 
+
+@login_required(login_url='login')
 def CourseUpload(request):
     current_user = request.user
     course_form = CourseForm(request.POST, request.FILES)
@@ -63,6 +72,7 @@ def CourseUpload(request):
     return render(request, "courses/new-upload.html", context)
 
 
+@login_required(login_url='login')
 def SectionUpload(request):
     current_user = request.user.get_username()
     courses = course.objects.last()
@@ -88,6 +98,8 @@ def SectionUpload(request):
     }
     return render(request, "courses/new-section.html", context)
 
+
+@login_required(login_url='login')
 def LessonUpload(request):
     current_user = request.user.get_username()
     section = Section.objects.last()
@@ -115,11 +127,12 @@ def LessonUpload(request):
 
 
 def CourseDescription(request, pk):
+    current_user = request.user.get_username()
     courses = course.objects.get(id=pk)
     sections = Section.objects.filter(courses_id=pk)
-    # lesson = sections.lessons.all()
+    # lesson = sections.lesson.all()
     # test = course.objects.filter(Section_id=pk)
-    description = courses.course_description[:50]
+    description = courses.course_description
     # instructor = courses.instructor.get_short_name()
 
 
@@ -128,29 +141,51 @@ def CourseDescription(request, pk):
         'course' : courses,
         'desc' : description,
         'section' : sections,
+    'user': current_user,
         # 'lesson' : lesson,
         # 'instructor': instructor,
         }
     return render(request, "student/course-description.html",context)    
 
+
+@login_required(login_url='login')
 def LessonDescription(request, pk):
+    current_user = request.user.get_username()
+    courses = course.objects.filter(section=pk).first()
     sections = Section.objects.get(id=pk)
+    sec = Section.objects.filter(courses=courses.id)
     # sections = courses.section.all()
     # section_sub = courses.section.all()
+    # les_dic = {}
+    # for i in sec:
     lessons = Lesson.objects.filter(section_id=pk)
+        
+        # les_dic.update({'i' : lessons})
     # test = course.objects.filter(Section_id=pk)
     # description = courses.course_description[:50]
     # instructor = courses.instructor.get_short_name()
     
 
     context = { 
-        # 'course' : courses,
+        'course' : courses,
         # 'desc' : description,
         'section' : sections,
         'lesson' : lessons,
         # 'instructor': instructor,
+        'sec' : sec,
+        'user': current_user,
         }
-    return render(request, "student/lesson.html", context)    
+    return render(request, "student/les_list.html", context)  
+
+def video(request, pk):
+    current_user = request.user.get_username()
+    lessons = Lesson.objects.get(id=pk)
+    context={
+        'vurl' : lessons,
+        'user': current_user,
+        }
+    return render(request, "student/video.html", context)
+
 
 def enroll(request, pk):
     current_user = request.user.get_username()
@@ -173,3 +208,6 @@ def enroll(request, pk):
 
     }
     return render(request, "courses/enroll.html", context)
+
+def under_con(request):
+    return render(request, "dashboard/under_con.html")

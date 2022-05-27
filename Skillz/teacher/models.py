@@ -17,7 +17,7 @@ class course(models.Model):
     updated=models.DateTimeField(auto_now=True)
     course_description = models.TextField(null=True)
     price = models.IntegerField(default=0.00)
-    image = models.ImageField(null=True, blank=True, upload_to="images")
+    image = models.ImageField( upload_to="images")
     video = models.FileField(null=True, blank=True, upload_to="images/%y")
     # section = models.ForeignKey('Section', on_delete=models.CASCADE)
     students = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)

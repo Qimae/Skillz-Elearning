@@ -1,21 +1,26 @@
 {% extends "teacher/base_teacher.html" %}
 {% load static %}
 {% block content %}
-<a href="" style="float: right;">See More...</a><br>
+<a href="{% url 'courses' %}" style="float: right;">See More...</a><br>
 <div class="row">
 
     {% for course in courses %}
 
     <div class="column">        
         <div class="card">         
-            <h3>{{course.title}}</h3><br>        
+            <h3>{{course.title}}</h3><br>
+            {% if course.image %}
             <img src="{{ course.image.url }}" alt="Intro image" height="215px" width="100%">
+            {% else %}
+            <img src="" alt="Intro image" height="215px" width="100%">
+            {% endif %}         
+            
             <p> {{course.course_description}}</p><br>
             <h2> {{course.price}} $</h2><br>
             {% if request.user.is_authenticated %}
-            <a href="{% url 'course-description' course.id %}"><input type="button" class="enroll" value="Enroll"></a>
+            <a href="{% url 'course-description' course.id %}"><input type="button" class="enroll" value="Learn"></a>
             {% else %}
-            <a href="{% url 'login' %}"><input type="button" class="enroll" value="Enroll"></a>
+            <a href="{% url 'login' %}"><input type="button" class="enroll" value="Learn"></a>
             {% endif %}
         </div>
         

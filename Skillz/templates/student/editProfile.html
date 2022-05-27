@@ -6,39 +6,39 @@
 
 
 <div class="row-profile">
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="col-7">
+            <div class="column-profile">
+                <div class="card-profile">
+                    <div class="container">
+                        <a href="{% url 'Myprofile' %}"><img src="{{ request.user.profile.image.url }}" alt="user image"
+                                style=" border-radius: 50% ;" height="15%" width="20%"></i></a>
 
-
-    <div class="column-profile">
-        <div class="card-profile">
-            <div class="container">
-                <a href="{% url 'Myprofile' %}"><img src="{{ request.user.profile.image.url }}" alt="user image"
-                        height="115px" width="10%"></i></a>
-
-            </div>
-        </div>
-    </div>
-
-
-    <!-- second row -->
-    <div class="row-profile">
-        <div class="column-profile">
-            <div class="card-profile">
-                <div class="container">
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form}}
-                        <input type="submit" class="button-profile" name="submit" value="Save"><br><br>
-                    </form>
-                        <!-- </form> -->
+                    </div>
                 </div>
             </div>
         </div>
 
+        <div class="col-5">
+            <div class="row-profile">
+                <div class="column-profile">
+                    <div class="card-profile">
+                        <div class="container">
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form}}
+                                <input type="submit" class="button-profile" name="submit" value="Save"><br><br>
+                            </form>
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
-
-    
-
-    
 </div>
 <!-- end -->
 

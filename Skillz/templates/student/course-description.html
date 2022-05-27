@@ -1,37 +1,173 @@
 {% extends "student/base_stu.html" %}
 {% block content %}
-
-<h2 style="margin-bottom: 30px; margin-top: 10px; text-align: center; color: #33258f;">{{course.title}}</h2>
-            <img style="margin: 0 auto; display: block;" src="{{ course.image.url }}" alt="image" height="130px"
-                width="300px"><br>
-                {% for sectio in section %}
-            <a href="{% url 'lesson-description' sectio.id %}">
-              <h2>{{sectio}}:</h2>
-              
-            </a>
-            <p style="text-align: left; margin-top: 10px; font-size: 17px;">
-                </p><br>
-                {{desc}}
-                {% endfor %}
-            <br>
-            
-
-
-
-
-            
-
-
-<div class="container1">
+<style>
   
-  
+  /* Fixed sidenav, full height */
 
+  .sidenav-start {
+    height: 400px;
+    width: 350px;
+    position: relative;
+    z-index: 1;
+    float: right;
+    top: 0;
+    right: 0;
+    background-color: rgb(240, 240, 240);
+    overflow-x: hidden;
+    padding-top: 20px;
+    border: 1px solid rgb(202, 195, 195);
+  }
+
+  /* Style the sidenav links and the dropdown button */
+
+  .sidenav-start a,
+  .dropdown-btn-start {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+
+  /* On mouse-over */
+
+  .sidenav-start a:hover,
+  .dropdown-btn-start:hover {
+    color: #33258f;
+  }
+
+  /* Add an active class to the active dropdown button */
+
+  .active {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+  }
+
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+
+  .dropdown-container-start {
+    display: none;
+    background-color: white;
+    padding-left: 8px;
+  }
+
+  /* Optional: Style the caret down icon */
+
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+
+  /* Some media queries for responsiveness */
+
+  @media screen and (max-height: 450px) {
+    .sidenav-start {
+      padding-top: 15px;
+    }
+
+    .sidenav-start a {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 810px) {
+    .sidenav-start {
+      display: none;
+    }
+  }
+</style>
+<div class="container" id="main">
+  <div class="row">
+  <div class="col">  <h2 style="margin-bottom: 30px; margin-top: 10px; text-align: center; color: #33258f;">{{course.title}}</h2>
+    <img style="margin: 0 auto; display: block;" src="{{ course.image.url }}" alt="image" height="130px"
+      width="300px"><br>
+   <center><p style="font-size: 22px; font-family: 'Source Sans Pro', sans-serif;">{{desc}}</p></center></div>
+
+
+
+
+
+  <br>
+  <div class="sidenav-start">
+    <a href="">
+      <h4></h4>
+    </a>
   
+    <button class="dropdown-btn-start">{{course}}
+      <i class="bi bi-caret-down-fill"></i>
+    </button>
   
-  
+    <div class="dropdown-container-start">
+      {% for sectio in section %}
+      <a href="{% url 'lesson-description' sectio.id %}">
+        <h2>{{sectio}}</h2>
     
+      </a>
 
+      <p style="text-align: left; margin-top: 10px; font-size: 17px;">
+      </p>
+    
+      {% endfor %}
+    </div><br>
   
+  
+  
+  
+  </div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
 </div><br>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "150px";
+    document.getElementById("main").style.marginLeft = "150px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+
+  /* lessons sidebar */
+  var dropdown = document.getElementsByClassName("dropdown-btn-start");
+  var i;
+
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    });
+  }
+</script>
 
 {% endblock %}
