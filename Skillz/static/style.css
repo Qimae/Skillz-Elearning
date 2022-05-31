@@ -617,6 +617,7 @@ textarea {
         width: 100%;
         display: block;
         margin-bottom: 20px;
+        height: 100vh;
     }
     video {
         width: 100%;
@@ -627,7 +628,7 @@ textarea {
         width: 100%;
         display: block;
         margin-bottom: 20px;
-        height: 300vh;
+        height: 100vh;
     }
     #calendar {
         width: 100%;

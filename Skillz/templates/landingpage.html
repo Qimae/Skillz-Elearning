@@ -1,917 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'Tstyle.css' %}">
-  <link rel="icon" href="{% static 'image/icon.png' %}" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>Skillz | A gateway to a future career</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="{% static 'image/icon.png' %}" type="image/x-icon">
+    <!-- <link rel="icon" href="{% static 'images/icon.png' %}"> -->
 </head>
-
-<body>
-  <section id="banner">
-    <img src="{% static 'Timages/logo.png' %}" id="logo">
-    <div class="banner-text">
-
-      <h1>Skillz E-Learning</h1>
-      <p>The Gateway to a Future Career</p>
-      <div class="banner-btn">
-        <a href="{% url 'CourseUpload' %}"><span></span> Teach on Skillz</a>
-        <a href="{% url 'Tindex' %}"><span></span>Learn on Skillz</a>
-        <a href="#"><span></span>Find Out </a>
-        <br>
-
-      </div>
-    </div>
-  </section>
-  <div>
-    <header class="header">
-      <div class="topnav" id="myTopnav">
-
-        <a href="#banner">Home</a>
-        <a href="#service">How it works</a>
-        <a href="#contact">Contact Us</a>
-        {% if request.user.is_authenticated %}
-
-
-
-        <a href="{% url 'Myprofile' %}">Profile</a>
-        <a href="#">My Courses</a>
-        <a href="{% url 'logout' %}">Log out</a>
-
-
-    {% else %}
-
-    <a href="{% url 'login' %}"><input type="button" class="button1" value="Sign-in"></a>
-    <a href="{% url 'register' %}"><input type="button" class="button2" value="Sign-up"></a>
-    {% endif %}
-
-      </div>
-
-
-
-      <!-- ABOUT -->
-      <section id="feature">
-        <div class="title-text">
-          <p>ABOUT</p>
-          <h1>Our Story</h1>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Preloader -->
+	<!-- <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
         </div>
-        <div class="features-box">
-          <div class="features">
-            <h1>inspiration</h1>
-            <div class="features-desc">
-              <div class="feature-icon">
-                <i class="fa fa-shield"></i>
-              </div>
-              <div class="feature-text">
-                <p>During the time spent in the programme we were impressed with the reach and opportunity ALX had given
-                  us.
-                  We then decided to make something similar but only offer programming courses to help any future
-                  leaders that might use our platform.
-                  ALX-Africa & Holberton School inspired our project.
+    </div> -->
+    <!-- end of preloader -->
+    
 
-                </p>
-              </div>
-            </div>
-            <h1>Technologies</h1>
-            <div class="features-desc">
-              <div class="feature-icon">
-                <i class="fa fa-check-square-o"></i>
-              </div>
-              <div class="feature-text">
-                <p class="h1">we used</p>
-                <p>HTML </p>
-                <p>CSS </p>
-                <p> BOOTSTRAP</p>
-                <p>JAVASCRIPT </p>
-                <p> pYTHON </p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Skillz</a> -->
+
+            <!-- Image Logo -->
+            <a class="navbar-brand logo-image" href="{% url 'Tindex' %}"><img src="{% static 'Timages/logo.png' %}" alt="alternative"></a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-awesome fas fa-bars"></span>
+                <span class="navbar-toggler-awesome fas fa-times"></span>
+            </button>
+            <!-- end of mobile menu toggle button -->
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#features">FEATURES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#details">DETAILS</a>
+                    </li><li class="nav-item">
+                        <a class="nav-link page-scroll" href="#video">VIDEO</a>
+                    </li>                   
                 
-              </div>
-            </div>
-            <div class="features-desc">
-              
-              <div class="feature-text">
                 
-              </div>
+                    {% if request.user.is_authenticated %}
+
+
+
+                    <li class="nav-item"> <a class="nav-link page-scroll" href="{% url 'Myprofile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link page-scroll" href="#">My Courses</a></li>
+                    <li class="nav-item"><a class="btn-outline-sm" href="{% url 'logout' %}">Log out</a></li>
+            
+            
+                {% else %}
+            
+                <li class="nav-item"><a href="{% url 'login' %}"><input type="button" class="btn-outline-sm" value="Sign-in"></a></li>
+
+                <li class="nav-item"><a href="{% url 'register' %}"><input type="button" class="btn-outline-sm" value="Sign-up"></a></li>
+                {% endif %}
+            </ul>
+                
             </div>
-          </div>
-          <div class="features-img1">
-            <img src="{% static 'Timages/i8.jpg' %}">
-            <img src="{% static 'Timages/i7.jpg' %}">
-          </div>
-          <div class="sidetxt"><i class="fa fa-check-square-o"></i>
-            <p>team work and <br>determination</p>
-            <P>we are determined to fulfil the full potential of this platform</P>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Features -->
-      <section id="feature">
-        <div class="title-text">
-          <p>FEATURES</p>
-          <h1>Why Choose Us</h1>
-        </div>
-        <div class="features-box">
-          <div class="features">
-            <h1>Experienced Staff</h1>
-            <div class="features-desc">
-              <div class="feature-icon">
-                <i class="fa fa-shield"></i>
-              </div>
-              <div class="feature-text">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br>Voluptatum doloribus consectetur
-                  harum aliquam facilis est nam,<br> praesentium<br> perferendis quis ratione, eum ea eos ipsam
-                  mollitia corporis nulla.
-                </p>
-              </div>
-            </div>
-            <h1>Easey for all</h1>
-            <div class="features-desc">
-              <div class="feature-icon">
-                <i class="fa fa-check-square-o"></i>
-              </div>
-              <div class="feature-text">
-                <p>we try hard everyday to create an interface<br> that is easly acessible for users of all age.
-                </p>
-              </div>
-            </div>
-            <div class="goleft">
-              <h1>Affordable Tutoring</h1>
-              <div class="features-desc">
-                <div class="feature-icon">
-                  <i class="fa fa-usd"></i>
-                </div>
-                <div class="feature-text">
-                  <p>we provide the best quality tutorials with <br>Experienced mentors for affordable price.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="features-img">
-            <img src="{% static 'Timages/i5.jpg' %}">
-          </div>
-        </div>
-      </section>
-
-      <!-- Service -->
-      <section id="service">
-        <div class="title-text">
-          <p>SERVICES</p>
-          <h1>We Provide Better</h1>
-        </div>
-        <div class="service-box">
-          <div class="single-service">
-            <img src="{% static 'Timages/screen2.jpg' %}">
-            <div class="overlay"></div>
-            <div class="service-desc">
-              <h3>Become a tutor</h3>
-              <hr>
-              <p>Upload your courses and teach online.</p>
-            </div>
-          </div>
-          <div class="single-service">
-            <img src="{% static 'Timages/i3.jpg' %}">
-            <div class="overlay"></div>
-            <div class="service-desc">
-              <h3>Skillz video room</h3>
-              <hr>
-              <p>get your personal tutor.</p>
-            </div>
-          </div>
-          <div class="single-service">
-            <img src="{% static 'Timages/i2.jpg' %}">
-            <div class="overlay"></div>
-            <div class="service-desc">
-              <h3>chat room</h3>
-              <hr>
-              <p>Ask questions to the community and interact with peers.</p>
-            </div>
-          </div>
-          <div class="single-service">
-            <img src="{% static 'Timages/screen.jpg' %}">
-            <div class="overlay"></div>
-            <div class="service-desc">
-              <h3>learn online</h3>
-              <hr>
-              <p>you can learn any programming courses here.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Testimonial -->
-      <section id="testimonial">
-        <div class="title-text">
-          <p>Skillz</p>
-          <h1>The Team</h1>
-        </div>
-        <div class="testimonial-row">
-          <div class="testimonial-col">
-            <div class="user">
-              <div class="usrimg">
-                <img src="Timages/logo.png">
-              </div>
-
-              <div class="user-info">
-                <h4>Mikiyas Anmaw<br>
-                  <div class="social">
-                    <a href="https://github.com/Monange1"><img
-                        src="https://img.icons8.com/material-outlined/24/000000/github.png" /></a>
-
-                    <a href="profile.socila_twitter"><img
-                        src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png" /></a>
-                    <a href="https://www.linkedin.com/in/mikiyas-anmaw-85b170240/"><img
-                        src="https://img.icons8.com/ios-glyphs/30/000000/linkedin-circled--v1.png" /></a>
-                  </div>
-
-              </div>
-            </div>
-            <p><em>Frontend Developer</em> </p>
-          </div>
-          <div class="testimonial-col">
-            <div class="user">
-
-              <div class="usrimg">
-                <a href='https://postimages.org/' target='_blank'><img
-                    src='https://i.postimg.cc/bw5HXCty/photo-2022-05-26-23-59-26.jpg' border='0'
-                    alt='photo-2022-05-26-23-59-26' /></a>
-              </div>
-              <div class="user-info">
-
-                <div class="social">
-                  <a href="https://github.com/NathyG2524"><img
-                      src="https://img.icons8.com/material-outlined/24/000000/github.png" /></a>
-
-                  <a href="https://twitter.com/NathyGirma"><img
-                      src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png" /></a>
-                  <a href="https://www.linkedin.com/in/nathy-girma-6370281b9/"><img
-                      src="https://img.icons8.com/ios-glyphs/30/000000/linkedin-circled--v1.png" /></a>
-                </div>
-
-              </div>
-            </div>
-            <h4>Natnael Girma<br>
-              <p><em>Backend Developer</em> </p>
-          </div>
-          <div class="testimonial-col">
-            <div class="user">
-              <div class="usrimg">
-                <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/50qk29JM/kimae.jpg'
-                    border='0' alt='kimae' /></a>
-              </div>
-              <div class="user-info">
-
-                <div class="social">
-                  <a href="https://github.com/Qimae"><img
-                      src="https://img.icons8.com/material-outlined/24/000000/github.png" /></a>
-
-                  <a href="profile.socila_twitter"><img
-                      src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png" /></a>
-                  <a href="https://www.linkedin.com/in/kimae-ngowa-aa84328b"><img
-                      src="https://img.icons8.com/ios-glyphs/30/000000/linkedin-circled--v1.png" /></a>
-                </div>
-              </div>
-            </div>
-            <h4>Kimae Ngowa<br>
-              <p> <em>Frontend Developer</em></p>
-          </div>
-        </div>
-
-      </section>
-      <section class="contact section" id="contact">
-        <h2 class="section-title">Contact</h2>
-
-        <div class="contact__container bd-grid">
-          <form action="" class="contact__form">
-            <input type="text" placeholder="Name" class="contact__input1">
-            <input type="text" placeholder="Email" class="contact__input1">
-            <textarea name="" id="" placeholder="write your message here" cols="0" rows="10"
-              class="contact__input1"></textarea>
-            <input type="button" value="comment" class="contact__button4 button4">
-          </form>
-        </div>ss
-      </section <!-- footer -->
-      <section id="footer">
-        <img src="https://i.postimg.cc/tTRVgVtS/logo.png" class="footer-img">
-        <div class="title-text">
-          <p>CONTACT</p>
-          <h1>Enroll Now</h1>
-        </div>
-        <div class="footer-row">
-          <div class="footer-left">
-            <h1>Open Hours</h1>
-            <p><i class="fa fa-clock-o"></i>Monday to Friday - 9am to 9pm</p>
-            <p><i class="fa fa-clock-o"></i>Saturday and Sunday - 8am to 11pm</p>
-          </div>
-          <div class="footer-right">
-            <h1>Get In Touch</h1>
-            <p>map<i class="fa fa-map-marker"></i></p>
-            <p>example@website.com<i class="fa fa-paper-plane"></i></p>
-            <p>+880123456789<i class="fa fa-phone"></i></p>
-          </div>
-        </div>
-        <div class="social-links">
-          <i class="fa fa-facebook"></i>
-          <i class="fa fa-instagram"></i>
-          <i class="fa fa-twitter"></i>
-          <i class="fa fa-youtube-play"></i>
-          <p>Copyright © 2022 - <a href="base.html" title="SKILLZ">SKILLZ</a>. All Rights Reserved</p>
-        </div>
-      </section>
-
-</body>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-  }
-
-  #banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), #6a77ef),
-      url("{% static 'Timages/back.jpg' %}");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
-
-  #logo {
-    width: 140px;
-    position: absolute;
-    top: 4%;
-    left: 10%;
-  }
-
-  .banner-text {
-    text-align: center;
-    color: #fff;
-    padding-top: 200px;
-
-  }
-
-  .banner-text h1 {
-    font-size: 100px;
-    font-family: "Kaushan Script", cursive;
-    margin-bottom: -40px;
-  }
-
-  .banner-text p {
-    font-size: 30px;
-    font-style: italic;
-  }
-
-  .banner-btn {
-    margin: 70px auto 0;
-  }
-
-  .banner-btn a {
-    width: 150px;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 10px;
-    padding: 12px 0;
-    color: #fff;
-    border: 0.5px solid #fff;
-    position: relative;
-    z-index: 1;
-    transition: color 0.5s;
-  }
-
-  .banner-btn a span {
-    width: 0;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #fff;
-    z-index: -1;
-  }
-
-  .banner-btn a:hover span {
-    width: 100%;
-  }
-
-  .banner-btn a:hover {
-    color: #000;
-  }
-
-  < !------------->.header {
-    border-bottom: 1px solid rgb(0, 174, 255);
-  }
-
-  .topnav {
-    overflow: hidden;
-    background-color: white;
-    text-align: center;
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
 
 
-  }
-
-  .topnav a.logo {
-    float: left;
-
-  }
-
-  .topnav a {
-    display: inline-block;
-    color: black;
-    padding: 25px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    text-align: right;
-  }
-
-  .topnav a:hover {
-    color: blue;
-  }
-
-  .topnav a.active {
-    color: blue;
-  }
-
-  < !------------------------>
-  nav ul li {
-    list-style: none;
-    margin: 50px 20px;
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #fff;
-  }
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-xl-5">
+                        <div class="text-container">
+                            <h1>Skillz E-learning</h1>
+                            <p class="p-large">Join Skillz the gateway to future career in</p>
+                            <a class="btn-solid-lg page-scroll" href="{% url 'Tindex' %}">Learn More!</a>
+                        </div> <!-- end of text-container -->
+                    </div> <!-- end of col -->
+                    <div class="col-lg-6 col-xl-7">
+                        <div class="image-container">
+                            <div class="img-wrapper">
+                                <img class="img-fluid" src="{% static 'images/header-software-app.png' %}" alt="alternative">
+                            </div> <!-- end of img-wrapper -->
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <svg class="header-frame" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 310"><defs><style>.cls-1{fill:#5f4def;}</style></defs><title>header-frame</title><path class="cls-1" d="M0,283.054c22.75,12.98,53.1,15.2,70.635,14.808,92.115-2.077,238.3-79.9,354.895-79.938,59.97-.019,106.17,18.059,141.58,34,47.778,21.511,47.778,21.511,90,38.938,28.418,11.731,85.344,26.169,152.992,17.971,68.127-8.255,115.933-34.963,166.492-67.393,37.467-24.032,148.6-112.008,171.753-127.963,27.951-19.26,87.771-81.155,180.71-89.341,72.016-6.343,105.479,12.388,157.434,35.467,69.73,30.976,168.93,92.28,256.514,89.405,100.992-3.315,140.276-41.7,177-64.9V0.24H0V283.054Z"/></svg>
+    <!-- end of header -->
 
 
+    <!-- Customers -->
+    <div class="slider-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <!-- Image Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container image-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/html.png' %}" alt="alternative" width="170px">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/php.png' %}" alt="alternative" width="170px">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="images/py.png" alt="alternative" width="170px">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/c.png' %}" alt="alternative" width="170px">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/word.png' %}" alt="alternative" width="170px">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/swift.png' %}" alt="alternative" width="170px">
+                                </div>
+                            </div> <!-- end of swiper-wrapper -->
+                        </div> <!-- end of swiper container -->
+                    </div> <!-- end of slider-container -->
+                    <!-- end of image slider -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider-1 -->
+    <!-- end of customers -->
 
 
-  @media screen and (max-width: 770px) {
-    .banner-text h1 {
-      font-size: 44px;
-    }
+    <!-- Description -->
+    <div class="cards-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="above-heading">Our Courses</div>
+                    <h2 class="h2-heading">A variety of programming Languages to choose from</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
 
-    .banner-btn a {
-      display: block;
-      margin: 20px auto;
-    }
-  }
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="{% static 'images/description-1.png' %}" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Introduction to Programming</h4>
+                            <p>Programming is writing computer code to create a program, to solve a problem. Programs are created to implement algorithms . Algorithms can be represented as pseudocode or a flowchart , and programming is the translation of these into a computer program.</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
 
-  /*==============feature============*/
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="{% static 'images/description-2.png' %}" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Introduction to C++</h4><br>
+                            <p>C++ is an object-oriented programming language which gives a clear structure to programs and allows code to be reused, lowering development costs. C++ is portable and can be used to develop applications that can be adapted to multiple platforms. C++ is fun and easy to learn!</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
 
-  #feature {
-    width: 100%;
-    padding: 70px 0;
-  }
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="{% static 'images/description-3.png' %}" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Python 101</h4><br>
+                            <p>Python has a simple syntax similar to the English language. Python has syntax that allows developers to write programs with fewer lines than some other programming languages. Python runs on an interpreter system, meaning that code can be executed as soon as it is written. This means that prototyping can be very quick.</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
 
-  .title-text {
-    text-align: center;
-    padding-bottom: 70px;
-  }
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-1 -->
+    <!-- end of description -->
 
-  .title-text p {
-    margin: auto;
-    font-size: 20px;
-    color: #009688;
-    font-weight: bold;
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-  }
 
-  .title-text p::after {
-    content: "";
-    width: 50px;
-    height: 35px;
-    background: linear-gradient(#0726c0, #fff);
-    position: absolute;
-    top: -20px;
-    left: 0;
-    z-index: -1;
-    transform: rotate(10deg);
-    border-top-left-radius: 35px;
-    border-bottom-right-radius: 35px;
-  }
+    <!-- Features -->
+    <div id="features" class="tabs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="above-heading">FEATURES</div>
+                    <h2 class="h2-heading">Career Development</h2>
+                    <p class="p-heading">The global developer population is expected to reach 28.7 million people by 2024, an increase of 3.2 million from the number seen in 2020. According to the source, much of this growth is expected to occur in China, where the growth rate is between six percent to eight percent heading up to 2023. Join Skillz now and be part of the future.</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
 
-  .title-text h1 {
-    font-size: 50px;
-  }
+                    <!-- Tabs Links -->
+                    <ul class="nav nav-tabs" id="argoTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-book"></i>Learn on Skillz</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-envelope-open-text"></i>Teach on Skillz</a>
+                        </li>                        
+                    </ul>
+                    <!-- end of tabs links -->
 
-  .features-box {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
-  }
+                    <!-- Tabs Content -->
+                    <div class="tab-content" id="argoTabsContent">
 
-  .features {
-    flex-basis: 50%;
-  }
+                        <!-- Tab -->
+                        <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="image-container">
+                                        <img class="img-fluid" src="{% static 'images/stu.jpg' %}" alt="alternative">
+                                    </div> <!-- end of image-container -->
+                                </div> <!-- end of col -->
+                                <div class="col-lg-6">
+                                    <div class="text-container">
+                                        <h3>Studying Is Easier Than Ever!</h3>
+                                        <p>It's very easy to start using Skillz. You just need to fill out and submit the <a class="blue page-scroll" href="sign-up.html">Sign Up Form</a> and you will receive access to the app and all of its features in no more than 24hrs.</p>
+                                        <ul class="list-unstyled li-space-lg">
+                                            <li class="media">
+                                                <i class="fas fa-square"></i>
+                                                <div class="media-body">Learn from the best programming coaches selected by us.</div>
+                                            </li>
+                                            <li class="media">
+                                                <i class="fas fa-square"></i>
+                                                <div class="media-body">Ask questions on our live chat for each course enrolled.</div>
+                                            </li>
+                                            <li class="media">
+                                                <i class="fas fa-square"></i>
+                                                <div class="media-body">Join our community and build your contacts from all over Africa.</div>
+                                            </li>
+                                        </ul>
+                                        <a class="btn-solid-reg popup-with-move-anim" href="stu-signup.html">Become a Student</a>
+                                    </div> <!-- end of text-container -->
+                                </div> <!-- end of col -->
+                            </div> <!-- end of row -->
+                        </div> <!-- end of tab-pane -->
+                        <!-- end of tab -->
 
-  .features-img1 {
-    flex-basis: 50%;
-    margin: auto;
-    margin-right: 150px;
-    margin-top: -800px;
-  }
+                        <!-- Tab -->
+                        <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="image-container">
+                                        <img class="img-fluid" src="{% static 'images/teacher.jpeg' %}" alt="alternativeee" height="400px">
+                                    </div> <!-- end of image-container -->
+                                </div> <!-- end of col -->
+                                <div class="col-lg-6">
+                                    <div class="text-container">
+                                        <h3>Become a Tutor Now!</h3>
+                                        <p>Our tutor dashboard provides easy course upload and interaction between you and your students. <a class="blue page-scroll" href="sign-up.html">Join Us</a> as a tutor and recieve competitive income.</p>
+                                        <ul class="list-unstyled li-space-lg">
+                                            <li class="media">
+                                                <i class="fas fa-square"></i>
+                                                <div class="media-body">Easily plan and schedule your live classes</div>
+                                            </li>
+                                            <li class="media">
+                                                <i class="fas fa-square"></i>
+                                                <div class="media-body">Interact directly with your students</div>
+                                            </li>
+                                            <li class="media">
+                                                <i class="fas fa-square"></i>
+                                                <div class="media-body">Earn income at the end of the month.</div>
+                                            </li>
+                                        </ul>
+                                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox-2">Become a Tutor</a>
+                                    </div> <!-- end of text-container -->
+                                </div> <!-- end of col -->
+                            </div> <!-- end of row -->
+                        </div> <!-- end of tab-pane -->
+                        <!-- end of tab -->
 
-  .features-img1 img {
-    width: 70%;
-    border-radius: 10px;
-  }
+                        
+                        
+                    </div> <!-- end of tab content -->
+                    <!-- end of tabs content -->
 
-  .features-img {
-    flex-basis: 50%;
-    margin: auto;
-    margin-right: -100px;
-    margin-top: -700px;
-  }
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of tabs -->
+    <!-- end of features -->
 
-  .features-img img {
-    width: 70%;
-    border-radius: 10px;
-  }
 
-  .features h1 {
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-    font-weight: 400;
-    color: #1a0dab;
-  }
-
-  .features-desc {
-    display: flex;
-    align-items: center;
-    margin-bottom: 100px;
-    margin-right: 150px;
-  }
-
-  .feature-icon .fas {
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 8px;
-    color: #009688;
-    border: 1px solid #009688;
-  }
-
-  .feature-text p {
-    padding: 0 20px;
-    text-align: initial;
-  }
-  .goleft{
   
-    margin-left: 600px;
-    margin-top: -300px;
-  }
-
-  @media screen and (max-width: 770px) {
-    .title-text h1 {
-      font-size: 35px;
-    }
-
-    .features {
-      flex-basis: 100%;
-    }
-
-    .features-img {
-      flex-basis: 100%;
-      margin: auto;
-    }
 
 
-    .features-img img {
-      width: 100%;
-    }
-  }
-
-  /*===========service============*/
-  #service {
-    width: 100%;
-    padding: 70px 0;
-    background: #efefef;
-  }
-
-  .service-box {
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: auto;
-  }
-
-  .single-service {
-    flex-basis: 48%;
-    text-align: center;
-    border-radius: 7px;
-    margin-bottom: 20px;
-    color: #fff;
-    position: relative;
-  }
-
-  .single-service img {
-    width: 100%;
-    border-radius: 7px;
-  }
-
-  .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    border-radius: 7px;
-    cursor: pointer;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), #3b2ce9);
-    opacity: 0;
-    transition: 1s;
-  }
-
-  .single-service:hover .overlay {
-    opacity: 1;
-  }
-
-  .service-desc {
-    width: 80%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    opacity: 0;
-    transform: translateX(-50%);
-    transition: 1s;
-  }
-
-  hr {
-    background: #fff;
-    height: 2px;
-    border: 0;
-    margin: 15px auto;
-    width: 60%;
-  }
-  .h1{
-    color:blue;
-  }
-
-  .service-desc p {
-    font-size: 14px;
-  }
-
-  .single-service:hover .service-desc {
-    bottom: 40%;
-    opacity: 1;
-  }
-
-  @media screen and (max-width: 770px) {
-    .single-service {
-      flex-basis: 100%;
-      margin-bottom: 30px;
-    }
-
-    .service-desc p {
-      font-size: 12px;
-    }
-
-    hr {
-      margin: 5px auto;
-    }
-
-    .single-service:hover .service-desc {
-      bottom: 25% !important;
-    }
-  }
-
-  /*====== testimonial =======*/
-
-  #testimonial {
-    width: 100%;
-    padding: 70px 0;
-  }
-
-  .sidetxt {
-    margin-left: 800px;
-    margin-top: -1600px;
-  }
-
-  .testimonial-row {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .testimonial-col {
-    flex-basis: 28%;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    box-shadow: 0 10px 20px 3px #00968814;
-    cursor: pointer;
-    transition: transform 0.5s;
-  }
-
-  .testimonial-col p {
-    font-size: 14px;
-  }
-
-  .user {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-  }
-
-  .usrimg {
-    width: 50px;
-    margin-right: 20px;
-    border-radius: 3px;
-  }
-
-  .user-info .fa {
-    margin-left: 10px;
-    color: #27c0ff;
-    font-size: 20px;
-  }
-
-  .social {
-    margin-left: 150px;
-  }
-
-  .user-info small {
-    color: #009688;
-  }
-
-  .testimonial-col:hover {
-    transform: translateY(-7px);
-  }
-
-  @media screen and (max-width: 770px) {
-    .testimonial-col {
-      flex-basis: 100%;
-    }
-  }
-
-  .contact__input1 {
-    width: 600px;
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-semi);
-    padding: 1rem;
-    border-radius: .5rem;
-    border: 1.5px solid black;
-    margin-bottom: var(--mb-4);
-  }
-
-  .button4 {
-    width: 600px;
-    height: 40px;
-    border-radius: 10px;
-    text-align: center;
-    background: blue;
-    border: 2px solid blue;
-    color: white;
-    font-size: 15px;
-    transition: 0.2s ease;
-    cursor: pointer;
-  }
-
-  .button4:hover {
-    color: rgb(27, 23, 245);
-    background-color: white;
-  }
+    <!-- Details -->
+    <div id="details" class="basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h2>About</h2>
+                        <p>After Joining ALX,Kenya a partner to Holberton School, my team and I were impressed by the life changing 
+                            opportunity that the program gave to the African community. We decided to build something similar to the 
+                            African community but alittle differrent from ALX.
+                        </p>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Our Platform only offers courses in programming Languages</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Live interaction between the tutor and the student</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">In-app chatroom</div>
+                            </li>
+                        </ul>
+                        <a class="btn-solid-reg page-scroll" href="https://github.com/Qimae/Skillz-Elearning">Profect Source Code</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <div class="image-container">
+                        <img class="img-fluid" src="{% static 'images/alx.gif' %}" alt="alternative">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of details -->
 
 
+    <!-- Video -->
+    <div id="video" class="basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
 
-  .contact__container {
-    width: 600px;
-    align-items: center;
-    margin-left: 300px;
-    margin-bottom: 100px;
+                    <!-- Video Preview -->
+                    <div class="image-container">
+                        <div class="video-wrapper">
+                            <a class="popup-youtube" href="https://www.youtube.com/watch?v=fLCjQJCekTs" data-effect="fadeIn">
+                                <img class="img-fluid" src="{% static 'images/video-image.png' %}" alt="alternative">
+                                <span class="video-play-button">
+                                    <span></span>
+                                </span>
+                            </a>
+                        </div> <!-- end of video-wrapper -->
+                    </div> <!-- end of image-container -->
+                    <!-- end of video preview -->
+
+                    <div class="p-heading">What better way to show off Skillz app than presenting you some great situations of each module and tool available to users in a video</div>        
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-2 -->
+    <!-- end of video -->
 
 
-  }
+    <!-- Pricing -->
+    <div id="pricing" class="cards-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="above-heading">Team</div>
+                    <h2 class="h2-heading">Members</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
 
-  .section-title {
-    margin-left: 300px;
-  }
+                    <!-- Card-->
+                    <div class="card">
+                        <div class="card-body">
+                            <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/7ZczfYr8/mk.jpg' 
+                                border='0' alt='mk'></a>
+                                <h4>Mikiyas Anmaw<br>
+                                    <p><em>Frontend Developer</em> </p>
+                                  </h4>
+                            
+                            <div class="button-wrapper">
+                                <a href="https://github.com/Monange1"><img
+                                    src="https://img.icons8.com/material-outlined/24/000000/github.png" /></a>
+                
+                                <a href="profile.socila_twitter"><img
+                                    src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png" /></a>
+                                <a href="https://www.linkedin.com/in/mikiyas-anmaw-85b170240/"><img
+                                    src="https://img.icons8.com/ios-glyphs/30/000000/linkedin-circled--v1.png" /></a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-  ss
+                    <!-- Card-->
+                    <div class="card">
+                        <div class="card-body">
+                            <a href='https://postimages.org/' target='_blank'><img
+                                src='https://i.postimg.cc/bw5HXCty/photo-2022-05-26-23-59-26.jpg' border='0'
+                                alt='photo-2022-05-26-23-59-26' /></a>
+                                <h4>Natnael Girma<br>
+                                    <p><em>Backend Developer</em> </p>
+                                  </h4>
+                            
+                            <div class="button-wrapper">
+                                <a href="https://github.com/NathyG2524"><img
+                                    src="https://img.icons8.com/material-outlined/24/000000/github.png" /></a>
+                
+                                <a href="https://twitter.com/NathyGirma"><img
+                                    src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png" /></a>
+                                <a href="https://www.linkedin.com/in/nathy-girma-6370281b9/"><img
+                                    src="https://img.icons8.com/ios-glyphs/30/000000/linkedin-circled--v1.png" /></a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-  /* footer */
-  #footer {
-    padding: 100px 0 20px;
-    background: #efefef;
-    position: relative;
-  }
+                    <!-- Card-->
+                    <div class="card">
+                        <!--<div class="label">
+                            <p class="best-value">Best Value</p>
+                        </div> -->
+                        <div class="card-body">
+                            <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/50qk29JM/kimae.jpg'
+                            border='0' alt='kimae' /></a>
+                            <h4>Kimae Ngowa<br>
+                                <p><em>Frontend Developer</em> </p>
+                              </h4>
+                      
+                            
+                            <div class="button-wrapper">
+                                <a href="https://github.com/Qimae"><img
+                                    src="https://img.icons8.com/material-outlined/24/000000/github.png" /></a>                
+                                <a href="profile.socila_twitter"><img
+                                    src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png" /></a>
+                                <a href="https://www.linkedin.com/in/kimae-ngowa-aa84328b"><img
+                                    src="https://img.icons8.com/ios-glyphs/30/000000/linkedin-circled--v1.png" /></a>
+                            </div>
+                        </div>
+                    </div> <!-- end of card -->
+                    <!-- end of card -->
 
-  .footer-row {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-2 -->
+    <!-- end of pricing -->
 
-  .footer-left,
-  .footer-right {
-    flex-basis: 45%;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
 
-  .footer-right {
-    text-align: right;
-  }
+    <!-- Testimonials -->
+    <div class="slider-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">      
+                    
+                    <!-- Text Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container text-slider">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <img class="img-fluid" src="{% static 'images/testimonial-1.jpg' %}" alt="alternative">
+                                    </div> <!-- end of image-wrapper -->
+                                    <div class="text-wrapper">
+                                        <div class="testimonial-text">I started to use Skillz about a year ago and never stopped since then. It does all the repeating marketing tasks and allows me to focus on core development activities like new product research and design. I love it and recommend it to everyone.</div>
+                                        <div class="testimonial-author">Jude Thorn - Developer</div>
+                                    </div> <!-- end of text-wrapper -->
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
 
-  .footer-row h1 {
-    margin: 10px 0;
-  }
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <img class="img-fluid" src="{% static 'images/testimonial-2.jpg' %}" alt="alternative">
+                                    </div> <!-- end of image-wrapper -->
+                                    <div class="text-wrapper">
+                                        <div class="testimonial-text">I never thought such a low amount of money for the certificate would bring me so many clients per month. Before Skillz I used the services of another platform which cost 10x more and delivered far less. Highly recommended to developers focused on results.</div>
+                                        <div class="testimonial-author">Roy Smith - Developer</div>
+                                    </div> <!-- end of text-wrapper -->
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
 
-  .footer-row p {
-    line-height: 35px;
-  }
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <img class="img-fluid" src="{% static 'images/testimonial-3.jpg' %}" alt="alternative">
+                                    </div> <!-- end of image-wrapper -->
+                                    <div class="text-wrapper">
+                                        <div class="testimonial-text">Skillz is the best online programming platform. It understands the mindset of young entrepreneurs and provides the necessary contentused in the job market. Just give it a try and you will definitely not regret spending your time.</div>
+                                        <div class="testimonial-author">Marsha Singer - Developer</div>
+                                    </div> <!-- end of text-wrapper -->
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
 
-  .footer-left .fa,
-  .footer-right .fa {
-    font-size: 20px;
-    color: blue;
-    margin: 10px;
-  }
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <img class="img-fluid" src="images/testimonial-4.jpg" alt="alternative">
+                                    </div> <!-- end of image-wrapper -->
+                                    <div class="text-wrapper">
+                                        <div class="testimonial-text">Tivo is one of the greatest marketing automation apps out there. I especially love the Reporting Tools module because it gives me such a great amount of information based on little amounts of input gathered in just few weeks of light weight usage. Recommended!</div>
+                                        <div class="testimonial-author">Ronda Louis - Developer</div>
+                                    </div> <!-- end of text-wrapper -->
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
 
-  .footer-img {
-    max-width: 370px;
-    opacity: 0.6;
-    position: absolute;
-    left: 50%;
-    top: 35%;
-    transform: translate(-50%, -50%);
-  }
+                            </div> <!-- end of swiper-wrapper -->
+                            
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <!-- end of add arrows -->
 
-  .social-links {
-    text-align: center;
-  }
+                        </div> <!-- end of swiper-container -->
+                    </div> <!-- end of slider-container -->
+                    <!-- end of text slider -->
 
-  .social-links .fa {
-    height: 40px;
-    width: 40px;
-    font-size: 20px;
-    line-height: 40px;
-    border: 1px solid black;
-    margin: 40px 5px 0;
-    color: black;
-    cursor: pointer;
-    transition: 0.5s;
-  }
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider-2 -->
+    <!-- end of testimonials -->
 
-  .social-links .fa:hover {
-    background: blue;
-    color: #fff;
-    transform: translateY(-7px);
-  }
 
-  .social-links p {
-    font-size: 12px;
-    margin-top: 20px;
-  }
+    <!-- Newsletter -->
+    <div class="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                        <div class="above-heading">NEWSLETTER</div>
+                        <h2>Stay Updated With The Latest News To Get More Qualified Leads</h2>
 
-  @media screen and (max-width: 770px) {
+                        <!-- Newsletter Form -->
+                        <form id="newsletterForm" data-toggle="validator" data-focus="false">
+                            <div class="form-group">
+                                <input type="email" class="form-control-input" id="nemail" required>
+                                <label class="label-control" for="nemail">Email</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="nterms" value="Agreed-to-Terms" required>I've read and agree to Tivo's written <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a> 
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control-submit-button">SUBSCRIBE</button>
+                            </div>
+                            <div class="form-message">
+                                <div id="nmsgSubmit" class="h3 text-center hidden"></div>
+                            </div>
+                        </form>
+                        <!-- end of newsletter form -->
 
-    .footer-left,
-    .footer-right {
-      flex-basis: 100%;
-      font-size: 14px;
-    }
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="icon-container">
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-pinterest-p fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin-in fa-stack-1x"></i>
+                            </a>
+                        </span>
+                    </div> <!-- end of col -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form -->
+    <!-- end of newsletter -->
 
-    .footer-img {
-      top: 25%;
-    }
-  }
-</style>
 
-<script>
-  var menuBtn = document.getElementById("menuBtn");
-  var sideNav = document.getElementById("sideNav");
-  var menu = document.getElementById("menu");
+    <!-- Footer -->
+    <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-col first">
+                        <h4>About Skillz</h4>
+                        <p class="p-small">We're passionate about providing the best online learning in the market</p>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col middle">
+                        <h4>Important Links</h4>
+                        <ul class="list-unstyled li-space-lg p-small">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Our business partners <a class="white" href="#your-link">tuirakhtechnologies.com</a></div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Read our <a class="white" href="terms-conditions.html">Terms & Conditions</a>, <a class="white" href="privacy-policy.html">Privacy Policy</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col last">
+                        <h4>Contact</h4>
+                        <ul class="list-unstyled li-space-lg p-small">
+                            <li class="media">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="media-body">Jubilee Building, Mombasa,Kenya</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-envelope"></i>
+                                <div class="media-body"><a class="white" href="mailto:contact@tivo.com">contact@skillz.com</a> <i class="fas fa-globe"></i><a class="white" href="index.html">www.skillz.com</a></div>
+                            </li>
+                        </ul>
+                    </div> 
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->
 
-  sideNav.style.right = "-250px";
 
-  menuBtn.onclick = function () {
-    if (sideNav.style.right == "-250px") {
-      sideNav.style.right = "0";
-      menu.src = "https://i.postimg.cc/52GMz12X/close.png";
-    } else {
-      sideNav.style.right = "-250px";
-      menu.src = "https://i.postimg.cc/L5vc8FW6/menu.png";
-    }
-  };
-  /* scroll speed control */
-  var scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 500,
-    speedAsDuration: true
-  });
-
-</script>
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © 2020 <a href="https://inovatik.com">Template by Inovatik</a></p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+    
+    	
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+</html>
