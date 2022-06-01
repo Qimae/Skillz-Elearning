@@ -78,12 +78,22 @@
                 </ul>
                 <span class="nav-item">
                     {% if request.user.is_authenticated %}
-
-
-
-                     <a class="btn-outline-sm" href="{% url 'Myprofile' %}">Profile</a>
-                    <a class="btn-outline-sm" href="#">My Courses</a>
-                    <a class="btn-outline-sm" href="{% url 'logout' %}">Log out</a>
+            
+                    <!-- Dropdown Menu -->          
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle page-scroll" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg></a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'Myprofile' %}"><span class="item-text">PROFILE</span></a>
+                            <div class="dropdown-items-divide-hr"></div>
+                            <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">COURSES</span></a>
+                            <div class="dropdown-items-divide-hr"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}"><span class="item-text">LOG OUT</span></a>
+                        </div>
+                    </li>
+                    <!-- end of dropdown menu -->
             
             
                 {% else %}
@@ -187,6 +197,8 @@
                         <div class="card-body">
                             <h4 class="card-title">Introduction to Programming</h4>
                             <p>Programming is writing computer code to create a program, to solve a problem. Programs are created to implement algorithms . Algorithms can be represented as pseudocode or a flowchart , and programming is the translation of these into a computer program.</p>
+                            <a class="btn-solid-reg page-scroll" href="#">Enroll</a>
+
                         </div>
                     </div>
                     <!-- end of card -->
@@ -199,6 +211,8 @@
                         <div class="card-body">
                             <h4 class="card-title">Introduction to C++</h4><br>
                             <p>C++ is an object-oriented programming language which gives a clear structure to programs and allows code to be reused, lowering development costs. C++ is portable and can be used to develop applications that can be adapted to multiple platforms. C++ is fun and easy to learn!</p>
+                            <a class="btn-solid-reg page-scroll" href="#">Enroll</a>
+
                         </div>
                     </div>
                     <!-- end of card -->
@@ -210,7 +224,9 @@
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Python 101</h4><br>
-                            <p>Python has a simple syntax similar to the English language. Python has syntax that allows developers to write programs with fewer lines than some other programming languages. Python runs on an interpreter system, meaning that code can be executed as soon as it is written. This means that prototyping can be very quick.</p>
+                            <p>Python has a simple syntax similar to the English language. Python has syntax that allows developers to write programs with fewer lines than some other programming languages. Python runs on an interpreter system, meaning that code can be executed as soon as it is written.</p>
+                            <a class="btn-solid-reg page-scroll" href="#">Enroll</a>
+
                         </div>
                     </div>
                     <!-- end of card -->
@@ -535,7 +551,7 @@
                                 <!-- Slide -->
                                 <div class="swiper-slide">
                                     <div class="image-wrapper">
-                                        <img class="img-fluid" src="images/testimonial-4.jpg" alt="alternative">
+                                        <img class="img-fluid" src="{% static 'images/testimonial-4.jpg' %}" alt="alternative">
                                     </div> <!-- end of image-wrapper -->
                                     <div class="text-wrapper">
                                         <div class="testimonial-text">skillz is one of the greatest marketing automation apps out there. I especially love the Reporting Tools module because it gives me such a great amount of information based on little amounts of input gathered in just few weeks of light weight usage. Recommended!</div>
@@ -687,7 +703,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright © 2020 <a href="https://skillz.com">Skillz</a></p>
+                    <p class="p-small">Copyright © 2022 <a href="https://skillz.com">Skillz</a></p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
