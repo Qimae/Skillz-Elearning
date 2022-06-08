@@ -78,10 +78,10 @@ def register_student(request):
 @login_required(login_url='login')
 def Myprofile(request):
     profile= Profile.objects.get(user_id=request.user.id)
-    courses = Course_Learner.objects.get(learner_id=request.user.id)
+    # courses = Course_Learner.objects.get(learner_id=request.user.id)
     context = {
         'profile' : profile,
-        'courses': courses,
+        # 'courses': courses,
     }
    
     return render(request, 'student/myprofile.html',context)

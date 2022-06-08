@@ -70,6 +70,9 @@
                         <a class="nav-link page-scroll" href="#features">FEATURES</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'courses' %}">COURSES</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link page-scroll" href="#details">DETAILS</a>
                     </li><li class="nav-item">
                         <a class="nav-link page-scroll" href="#video">VIDEO</a>
@@ -88,7 +91,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'Myprofile' %}"><span class="item-text">PROFILE</span></a>
                             <div class="dropdown-items-divide-hr"></div>
-                            <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">COURSES</span></a>
+                            <a class="dropdown-item" href="{% url 'courses' %}"><span class="item-text">COURSES</span></a>
                             <div class="dropdown-items-divide-hr"></div>
                             <a class="dropdown-item" href="{% url 'logout' %}"><span class="item-text">LOG OUT</span></a>
                         </div>
@@ -324,7 +327,7 @@
                                                 <div class="media-body">Earn income at the end of the month.</div>
                                             </li>
                                         </ul>
-                                        <a class="btn-solid-reg page-scroll" href="{% url 'register' %}">Become a Tutor</a>
+                                        <a class="btn-solid-reg page-scroll" href="{% url 'CourseUpload' %}">Teach on Skillz</a>
                                     </div> <!-- end of text-container -->
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->

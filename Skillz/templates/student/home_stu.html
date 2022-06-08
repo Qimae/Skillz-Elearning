@@ -56,47 +56,18 @@
         totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
         quasi aliquam eligendi, placeat qui corporis</p>
 </div>
-<div class="tag" id="contact">
-    <h2>Contact Us</h2>
-</div>
-<div class="row1">
-    <div class="column1">
-        <div class="card1">
-            <div class="mapouter">
-                <div class="gmap_canvas">
-                    <iframe width="100%" height="fit-content" id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=lavington%20mall&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                    <style>
-                        .mapouter {
-                            position: relative;
-                            text-align: right;
-                            height: fit-content;
-                            width: 100%;
-                        }
-                    </style>
-                    <style>
-                        .gmap_canvas {
-                            overflow: hidden;
-                            background: none !important;
-                            height: fit-content;
-                            width: 100%;
-                        }
-                    </style>
-                </div>
-            </div>
-        </div>
-    </div>
+<footer>
+    <div class="legal">
+        <a href="{% url 'index' %}" class="nav-logo"><img src="{% static 'image/logo.png' %}" width="60px"></a>
 
-    <div class="column1">
-        <div class="card1">
-            <div class="contact">
-                <h4>Get in Touch</h4><br>
-                <a href="mailto:hello@skillz.co.ke">hello@skillz.co.ke</a><br>
-                <a href="#">Chat with us on Whatsapp</a>
-            </div>
+        <a href="www.facebook.com"><img src="https://img.icons8.com/color/48/000000/facebook-new.png" /></a>
+        <a href="www.whatsapp.com"></i> <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" /></a>
+        <a href="www.telegram.com"></i> <img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" /></a>
+        <p>Copyright © 2022 - <a href="base.html" title="SKILLZ">SKILLZ</a>. All Rights Reserved</p>
+        <a target="_blank" href="https://icons8.com/icon/17842/linux">Icons by Icons8</a>
 
-        </div>
     </div>
+</footer>
+    
     {% endblock content %}
-{% extends "student/footer.html" %}
+

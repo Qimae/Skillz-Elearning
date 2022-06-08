@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +8,7 @@
 
 html {
     font-size: 62.5%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 li {
@@ -18,10 +19,14 @@ a {
     text-decoration: none;
 }
 
+
+
 .topnav {
     overflow: hidden;
-    background-color: white;
+    background-color: #5f4dee;
     text-align: right;
+    height: 50px;
+
 }
 
 .topnav a.logo {
@@ -30,18 +35,41 @@ a {
 
 .topnav a {
     display: inline-block;
-    color: black;
-    padding: 25px 16px;
+    color: rgba(216, 212, 212, 0.884);
+    padding: 10px 13px;
     text-decoration: none;
     font-size: 17px;
     text-align: right;
 }
 
 .topnav a:hover {
-    color: blue;
+    color: white;
 }
 
 .topnav a.active {
+    color: blue;
+}
+.topnav-dashboard {
+    overflow: hidden;
+    background-color: white;
+    text-align: right;
+    height: 50px;
+
+}
+.topnav-dashboard a {
+    display: inline-block;
+    color: black;
+    padding: 7px 13px;
+    text-decoration: none;
+    font-size: 17px;
+    text-align: right;
+}
+
+.topnav-dashboard a:hover {
+    color: blue;
+}
+
+.topnav-dashboard a.active {
     color: blue;
 }
 
@@ -53,6 +81,7 @@ a {
     .topnav a:not(:first-child) {
         display: none;
     }
+
     .topnav a.icon {
         float: right;
         display: block;
@@ -63,16 +92,19 @@ a {
     .topnav.responsive {
         position: relative;
     }
+
     .topnav.responsive .icon {
         position: absolute;
         right: 0;
         top: 0;
     }
+
     .topnav.responsive a {
         float: none;
         display: block;
-        text-align: center;
+        text-align: left;
     }
+
     .topnav.responsive a.nav-logo {
         text-align: left;
     }
@@ -82,6 +114,7 @@ a {
     color: #33258f;
     float: left;
     padding-top: 20px;
+
 }
 
 main {
@@ -100,30 +133,28 @@ main {
 }
 
 .button1 {
-    width: 100px;
-    height: 40px;
+    padding: 5px 12px;
     border-radius: 10px;
     text-align: center;
-    background: white;
-    border: 2px solid blue;
-    color: blue;
+    background: #5f4dee;
+    border: 2px solid white;
+    color: white;
     font-size: 15px;
     transition: 0.2s ease;
     cursor: pointer;
 }
 
 .button1:hover {
-    color: white;
-    background-color: blue;
+    color: #5f4dee;
+    background-color: white;
 }
 
 .button2 {
-    width: 100px;
-    height: 40px;
+    padding: 5px 12px;
     border-radius: 10px;
     text-align: center;
-    background: blue;
-    border: 2px solid blue;
+    background: #5f4dee;
+    border: 2px solid white;
     color: white;
     font-size: 15px;
     transition: 0.2s ease;
@@ -131,7 +162,7 @@ main {
 }
 
 .button2:hover {
-    color: rgb(27, 23, 245);
+    color: #5f4dee;
     background-color: white;
 }
 
@@ -175,14 +206,12 @@ footer {
 .column {
     float: left;
     width: 33.3%;
-    
     padding: 0 10px;
     padding-top: 20px;
 }
 
 .row {
     margin: 0 -5px;
-    height: 50%;
 }
 
 .row:after {
@@ -205,7 +234,6 @@ footer {
     text-align: center;
     background-color: #f1f1f1;
 }
-
 .column-my {
     float: left;
     width: 33.3%;
@@ -238,17 +266,16 @@ footer {
     text-align: center;
     background-color: #f1f1f1;
 }
-
 .column-desc {
     width: 50%;
     padding: 0 10px;
     padding-top: 20px;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto;   
 }
-
 .row-desc {
     margin: 0 auto;
+
 }
 
 .row-desc:after {
@@ -270,8 +297,9 @@ footer {
     padding: 16px;
     text-align: center;
     background-color: #f1f1f1;
+    
+    
 }
-
 .enroll {
     width: 100px;
     height: 40px;
@@ -289,7 +317,6 @@ footer {
     color: white;
     background-color: blue;
 }
-
 .enroll-my {
     width: 200px;
     height: 40px;
@@ -307,7 +334,6 @@ footer {
     color: white;
     background-color: blue;
 }
-
 .enroll-desc {
     width: 200px;
     height: 40px;
@@ -364,6 +390,7 @@ footer {
     text-align: center;
     background-color: #f1f1f1;
     height: 200px;
+
 }
 
 .contact {
@@ -374,6 +401,7 @@ footer {
 
 .contact a {
     color: black;
+
 }
 
 .container {
@@ -382,7 +410,6 @@ footer {
     border-radius: 10px;
     position: relative;
 }
-
 .container1 {
     padding: 70px;
     border-radius: 10px;
@@ -390,8 +417,8 @@ footer {
     background-color: white;
     width: 50%;
     margin: auto;
+    
 }
-
 @media screen and (max-width: 719px) {
     .container1 {
         width: 100%;
@@ -401,19 +428,19 @@ footer {
 }
 
 input[type=text],
-input[type=email],
-input[type=file],
-input[type=number],
 input[type=password],
+input[type=email],
+input[type=number],
+input[type=file],
 textarea {
     width: 100%;
     padding: 12px 20px;
+    margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
-    text-align: left;
     box-sizing: border-box;
+    text-align: center;
     border-radius: 10px;
-    margin: 8px 0;
 }
 
 .button {
@@ -427,11 +454,13 @@ textarea {
     transition: 0.2s ease;
     cursor: pointer;
     width: 100%;
+
 }
 
 .button:hover {
     color: white;
     background-color: blue;
+
 }
 
 .log {
@@ -441,6 +470,7 @@ textarea {
 
 .text {
     text-align: center;
+
 }
 
 .ac {
@@ -451,12 +481,14 @@ textarea {
     margin: 0 -5px;
     background-color: white;
     bottom: 10px;
+
 }
 
 .row-login:after {
     content: "";
     display: table;
     clear: both;
+
 }
 
 .column-login {
@@ -465,6 +497,7 @@ textarea {
     padding: 0 10px;
     padding-top: 20px;
     background-color: white;
+
 }
 
 @media screen and (max-width: 719px) {
@@ -473,9 +506,11 @@ textarea {
         display: block;
         margin-bottom: 20px;
     }
+
     #teens {
         display: none;
     }
+
     .dropdown {
         display: none;
     }
@@ -490,6 +525,7 @@ textarea {
 .dropdown {
     float: right;
     overflow: hidden;
+
 }
 
 .dropdown .dropbtn {
@@ -497,7 +533,7 @@ textarea {
     border: none;
     outline: none;
     color: black;
-    padding: 14px 16px;
+    padding: 8px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
@@ -528,25 +564,30 @@ textarea {
 
 .dropdown:hover .dropdown-content {
     display: block;
+    position: fixed;
 }
 
 .row-profile {
-    margin: 0 auto;
+    margin: 0 -5px;
+    background-color: white;
+    bottom: 10px;
+
 }
 
 .row-profile:after {
     content: "";
     display: table;
     clear: both;
+
 }
 
 .column-profile {
     float: left;
     width: 100%;
-    margin: auto;
     padding: 0 10px;
     padding-top: 20px;
     background-color: white;
+
 }
 
 @media screen and (max-width: 719px) {
@@ -578,11 +619,14 @@ textarea {
     padding: 12px 20px;
     margin-top: 100px;
     float: right;
+
+
 }
 
 .button-profile:hover {
     color: white;
     background-color: blue;
+
 }
 
 .row-course {
@@ -590,12 +634,14 @@ textarea {
     background-color: white;
     bottom: 10px;
     position: relative;
+
 }
 
 .row-course:after {
     content: "";
     display: table;
     clear: both;
+
 }
 
 .column-course {
@@ -605,6 +651,7 @@ textarea {
     padding: 0 10px;
     padding-top: 20px;
     background-color: white;
+
 }
 
 @media screen and (max-width: 719px) {
@@ -617,7 +664,6 @@ textarea {
         width: 100%;
         display: block;
         margin-bottom: 20px;
-        height: 100vh;
     }
     video {
         width: 100%;
@@ -628,13 +674,15 @@ textarea {
         width: 100%;
         display: block;
         margin-bottom: 20px;
-        height: 100vh;
+        height: 300vh;
     }
     #calendar {
         width: 100%;
         display: block;
         margin-bottom: 20px;
+
     }
+
 }
 
 .card-course {
@@ -674,38 +722,25 @@ textarea {
     right: 5px;
     font-size: 36px;
     margin-left: 50px;
-}
-
-.openbtn {
+  }
+  .openbtn {
     font-size: 20px;
     cursor: pointer;
     background-color: white;
-    color: #33258f;
+    color:#33258f;
     padding: 1px;
     border: none;
     float: left;
-}
-
-#main {
+  }
+  
+  #main {
     transition: margin-left .5s;
     padding: 16px;
-}
-
-#main-start {
-    transition: margin-left .5s;
-    padding: 16px;
-    margin-right: 400px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidebar {
-        padding-top: 15px;
-    }
-    .sidebar a {
-        font-size: 18px;
-    }
-}
-
+  }
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
 .sidebar a.active {
     background-color: white;
     color: #33258f;
@@ -718,29 +753,26 @@ textarea {
     color: #33258f;
     margin-left: 15px;
     margin-right: 15px;
+
+
 }
 
 div.content {
-    padding: 1px 16px;
+    padding: 0px 16px;
     background-color: white;
 }
 
 .sidebar .icon {
     display: none;
 }
-
 h4 {
     color: #33258f;
-}
 
+}
 .title {
-    color: black;
-}
+    color: #33258f;
 
+}
 .title:hover {
-    color: red;
-}
-
-span {
     color: red;
 }
