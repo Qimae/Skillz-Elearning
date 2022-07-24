@@ -1,6 +1,6 @@
-# skillz elearning
+# Skillz E-learning
 
-Skillz is an online platform which allows users to upload their course and learn other users courses.
+Skillz is an online platform which allows users to upload their course and learn other's users courses.
 
 ### programmig languages  
 
